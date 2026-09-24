@@ -63,7 +63,8 @@
       align-items: center;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;              /* FIX: 100 → 1000 */
+      overflow: visible;          /* FIX: added */
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       gap: 1rem;
       min-width: 0;
@@ -75,7 +76,7 @@
       gap: 2rem;
       flex-shrink: 0;
       max-width: 40%;
-      overflow: hidden;
+      overflow: visible;          /* FIX: hidden → visible */
     }
 
     .nav-left .nav-links {
@@ -121,18 +122,20 @@
       border: 1px solid rgba(207, 171, 85, 0.35);
       border-radius: 12px;
       padding: 0.6rem 0;
-      margin-top: 0.8rem;
+      margin-top: 0;                          /* FIX: 0.8rem → 0 */
       opacity: 0;
       visibility: hidden;
       transform: translateY(10px);
-      transition: all 0.3s ease;
+      transform-origin: top left;             /* FIX: added */
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;  /* FIX: all → explicit */
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-      z-index: 200;
+      z-index: 9999;                          /* FIX: 200 → 9999 */
+      pointer-events: none;                   /* FIX: added */
     }
     .dropdown-menu::before {
       content: '';
       position: absolute;
-      top: -6px;
+      top: -6px;                              /* FIX: -6px → -6px (kept) */
       left: 2rem;
       width: 12px;
       height: 12px;
@@ -145,6 +148,7 @@
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
+      pointer-events: auto;                   /* FIX: added */
     }
     .dropdown-menu a {
       display: flex;
@@ -702,7 +706,6 @@
 
     /* ============================================================
        BELOW 1200px — SHOW HAMBURGER
-       (Covers 14" laptops, tablets, and phones)
        ============================================================ */
     @media (max-width: 1200px) {
       header { padding: 1.2rem 1.5rem; }
@@ -728,7 +731,6 @@
 
       .review-card { width: 340px; }
 
-      /* Hide the desktop text menu, show the hamburger */
       .nav-left .nav-links { display: none; }
       .nav-left { max-width: none; overflow: visible; gap: 0; }
       .nav-right { max-width: none; }
@@ -1303,7 +1305,6 @@
 
         <!-- ============ REVIEW SET 1 ============ -->
 
-        <!-- 5 stars -->
         <div class="review-card">
           <span class="review-quote-mark">"</span>
           <div class="review-stars">
@@ -1322,7 +1323,6 @@
           </div>
         </div>
 
-        <!-- 4.5 stars -->
         <div class="review-card">
           <span class="review-quote-mark">"</span>
           <div class="review-stars">
@@ -1341,7 +1341,6 @@
           </div>
         </div>
 
-        <!-- 5 stars -->
         <div class="review-card">
           <span class="review-quote-mark">"</span>
           <div class="review-stars">
@@ -1360,7 +1359,6 @@
           </div>
         </div>
 
-        <!-- 4 stars -->
         <div class="review-card">
           <span class="review-quote-mark">"</span>
           <div class="review-stars">
@@ -1379,7 +1377,6 @@
           </div>
         </div>
 
-        <!-- 5 stars -->
         <div class="review-card">
           <span class="review-quote-mark">"</span>
           <div class="review-stars">
@@ -1398,7 +1395,6 @@
           </div>
         </div>
 
-        <!-- 4.5 stars -->
         <div class="review-card">
           <span class="review-quote-mark">"</span>
           <div class="review-stars">
@@ -1419,7 +1415,6 @@
 
         <!-- ============ REVIEW SET 2 (Duplicate for seamless loop) ============ -->
 
-        <!-- 5 stars -->
         <div class="review-card">
           <span class="review-quote-mark">"</span>
           <div class="review-stars">
@@ -1438,7 +1433,6 @@
           </div>
         </div>
 
-        <!-- 4.5 stars -->
         <div class="review-card">
           <span class="review-quote-mark">"</span>
           <div class="review-stars">
@@ -1457,7 +1451,6 @@
           </div>
         </div>
 
-        <!-- 5 stars -->
         <div class="review-card">
           <span class="review-quote-mark">"</span>
           <div class="review-stars">
@@ -1476,7 +1469,6 @@
           </div>
         </div>
 
-        <!-- 4 stars -->
         <div class="review-card">
           <span class="review-quote-mark">"</span>
           <div class="review-stars">
@@ -1495,7 +1487,6 @@
           </div>
         </div>
 
-        <!-- 5 stars -->
         <div class="review-card">
           <span class="review-quote-mark">"</span>
           <div class="review-stars">
@@ -1514,7 +1505,6 @@
           </div>
         </div>
 
-        <!-- 4.5 stars -->
         <div class="review-card">
           <span class="review-quote-mark">"</span>
           <div class="review-stars">
@@ -1677,7 +1667,7 @@
     /* WHATSAPP NUMBER */
     const WHATSAPP_NUMBER = '919762769608';
 
-    /* THEME TOGGLE — loads before DOM ready */
+    /* THEME — load before DOM ready */
     (function initTheme() {
       try {
         const savedTheme = localStorage.getItem('orexon-theme') || 'dark';
@@ -1687,7 +1677,63 @@
       } catch (e) {}
     })();
 
-    /* SMOOTH SCROLL */
+    /* ============================================================
+       DOM REFERENCES (declared FIRST so no TDZ errors)
+       ============================================================ */
+    const hamburger            = document.getElementById('hamburger');
+    const mobileMenu           = document.getElementById('mobileMenu');
+    const mobileMenuClose      = document.getElementById('mobileMenuClose');
+    const backToTop            = document.getElementById('backToTop');
+    const modalOverlay         = document.getElementById('modalOverlay');
+    const modalClose           = document.getElementById('modalClose');
+    const modalFormWrap        = document.getElementById('modalFormWrap');
+    const modalSuccess         = document.getElementById('modalSuccess');
+    const modalTitle           = document.getElementById('modalTitle');
+    const modalSub             = document.getElementById('modalSub');
+    const inquiryForm          = document.getElementById('inquiryForm');
+    const successClose         = document.getElementById('successClose');
+    const mobileProductsDropdown = document.getElementById('mobileProductsDropdown');
+    const mobileProductsToggle   = document.getElementById('mobileProductsToggle');
+
+    /* ============================================================
+       MOBILE MENU
+       ============================================================ */
+    function closeMobileMenu() {
+      if (hamburger) hamburger.classList.remove('active');
+      if (mobileMenu) mobileMenu.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+    }
+
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        document.body.classList.toggle('no-scroll');
+      });
+
+      hamburger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          hamburger.click();
+        }
+      });
+    }
+
+    if (mobileMenuClose) {
+      mobileMenuClose.addEventListener('click', closeMobileMenu);
+    }
+
+    /* MOBILE PRODUCTS DROPDOWN */
+    if (mobileProductsToggle) {
+      mobileProductsToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        mobileProductsDropdown.classList.toggle('open');
+      });
+    }
+
+    /* ============================================================
+       SMOOTH SCROLL
+       ============================================================ */
     document.querySelectorAll('[data-scroll]').forEach(el => {
       el.addEventListener('click', (e) => {
         e.preventDefault();
@@ -1711,57 +1757,24 @@
       });
     });
 
-    /* HAMBURGER MENU */
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const mobileMenuClose = document.getElementById('mobileMenuClose');
-
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      mobileMenu.classList.toggle('active');
-      document.body.classList.toggle('no-scroll');
-    });
-
-    hamburger.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        hamburger.click();
-      }
-    });
-
-    mobileMenuClose.addEventListener('click', () => closeMobileMenu());
-
-    function closeMobileMenu() {
-      hamburger.classList.remove('active');
-      mobileMenu.classList.remove('active');
-      document.body.classList.remove('no-scroll');
-    }
-
-    /* MOBILE PRODUCTS DROPDOWN */
-    const mobileProductsDropdown = document.getElementById('mobileProductsDropdown');
-    const mobileProductsToggle = document.getElementById('mobileProductsToggle');
-    if (mobileProductsToggle) {
-      mobileProductsToggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        mobileProductsDropdown.classList.toggle('open');
-      });
-    }
-
-    /* GLOBAL ESC HANDLER */
+    /* ESC key — close menu + modal */
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        if (mobileMenu.classList.contains('active')) closeMobileMenu();
-        if (modalOverlay.classList.contains('active')) closeModal();
+        if (mobileMenu && mobileMenu.classList.contains('active')) closeMobileMenu();
+        if (modalOverlay && modalOverlay.classList.contains('active')) closeModal();
       }
     });
 
+    /* Resize — auto close mobile menu above 1200px */
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 1200 && mobileMenu.classList.contains('active')) {
+      if (window.innerWidth > 1200 && mobileMenu && mobileMenu.classList.contains('active')) {
         closeMobileMenu();
       }
     });
 
-    /* THEME TOGGLE */
+    /* ============================================================
+       THEME TOGGLE
+       ============================================================ */
     document.addEventListener('DOMContentLoaded', () => {
       const themeToggle = document.getElementById('themeToggle');
       const themeIcon = document.getElementById('themeIcon');
@@ -1783,7 +1796,8 @@
         try { localStorage.setItem('orexon-theme', theme); } catch (e) {}
       }
 
-      const currentTheme = localStorage.getItem('orexon-theme') || 'dark';
+      let currentTheme = 'dark';
+      try { currentTheme = localStorage.getItem('orexon-theme') || 'dark'; } catch (e) {}
       applyTheme(currentTheme);
 
       themeToggle.addEventListener('click', () => {
@@ -1799,7 +1813,9 @@
       });
     });
 
-    /* VIEW BUTTONS */
+    /* ============================================================
+       VIEW BUTTONS
+       ============================================================ */
     document.querySelectorAll('.btn-view').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -1811,37 +1827,31 @@
       });
     });
 
-    /* BACK TO TOP */
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 400) {
-        backToTop.classList.add('show');
-      } else {
-        backToTop.classList.remove('show');
-      }
-    });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    /* ============================================================
+       BACK TO TOP
+       ============================================================ */
+    if (backToTop) {
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 400) backToTop.classList.add('show');
+        else backToTop.classList.remove('show');
+      });
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
 
-    /* MODAL */
-    const modalOverlay = document.getElementById('modalOverlay');
-    const modalClose = document.getElementById('modalClose');
-    const modalFormWrap = document.getElementById('modalFormWrap');
-    const modalSuccess = document.getElementById('modalSuccess');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalSub = document.getElementById('modalSub');
-    const inquiryForm = document.getElementById('inquiryForm');
-    const successClose = document.getElementById('successClose');
-
+    /* ============================================================
+       MODAL
+       ============================================================ */
     function openModal(prefillInterest, titleText) {
+      if (!modalOverlay) return;
       modalFormWrap.style.display = 'block';
       modalSuccess.classList.remove('show');
       modalTitle.textContent = titleText || 'Send Inquiry';
-      modalSub.textContent = 'Fill in your details and we\'ll get back within 24 hours.';
+      modalSub.textContent = "Fill in your details and we'll get back within 24 hours.";
 
       const select = document.getElementById('inqInterest');
-      if (prefillInterest) {
+      if (prefillInterest && select) {
         let matched = false;
         Array.from(select.options).forEach(opt => {
           if (opt.value === prefillInterest || prefillInterest.toLowerCase().includes(opt.value.toLowerCase())) {
@@ -1850,31 +1860,37 @@
           }
         });
         if (!matched) select.value = 'Other';
-      } else {
+      } else if (select) {
         select.value = 'Hand Dryers';
       }
 
       modalOverlay.classList.add('active');
       document.body.classList.add('no-scroll');
-      setTimeout(() => document.getElementById('inqName').focus(), 350);
+      setTimeout(() => {
+        const inqName = document.getElementById('inqName');
+        if (inqName) inqName.focus();
+      }, 350);
     }
 
     function closeModal() {
+      if (!modalOverlay) return;
       modalOverlay.classList.remove('active');
       document.body.classList.remove('no-scroll');
       setTimeout(() => {
-        inquiryForm.reset();
-        modalFormWrap.style.display = 'block';
-        modalSuccess.classList.remove('show');
+        if (inquiryForm) inquiryForm.reset();
+        if (modalFormWrap) modalFormWrap.style.display = 'block';
+        if (modalSuccess) modalSuccess.classList.remove('show');
       }, 300);
       document.dispatchEvent(new Event('modalClosed'));
     }
 
-    modalClose.addEventListener('click', closeModal);
-    successClose.addEventListener('click', closeModal);
-    modalOverlay.addEventListener('click', (e) => {
-      if (e.target === modalOverlay) closeModal();
-    });
+    if (modalClose) modalClose.addEventListener('click', closeModal);
+    if (successClose) successClose.addEventListener('click', closeModal);
+    if (modalOverlay) {
+      modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) closeModal();
+      });
+    }
 
     document.querySelectorAll('[data-inquiry]').forEach(el => {
       el.addEventListener('click', (e) => {
@@ -1890,58 +1906,50 @@
       });
     });
 
-    inquiryForm.addEventListener('submit', (e) => {
-      e.preventDefault();
+    if (inquiryForm) {
+      inquiryForm.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-      const name = document.getElementById('inqName').value.trim();
-      const email = document.getElementById('inqEmail').value.trim();
-      const company = document.getElementById('inqCompany').value.trim();
-      const interest = document.getElementById('inqInterest').value;
-      const message = document.getElementById('inqMessage').value.trim();
+        const name = document.getElementById('inqName').value.trim();
+        const email = document.getElementById('inqEmail').value.trim();
+        const company = document.getElementById('inqCompany').value.trim();
+        const interest = document.getElementById('inqInterest').value;
+        const message = document.getElementById('inqMessage').value.trim();
 
-      const lines = [
-        'NEW INQUIRY - OREXON LUXE',
-        '------------------------------',
-        '',
-        'Name:',
-        name,
-        '',
-        'Email:',
-        email,
-        '',
-        'Company:',
-        company,
-        '',
-        'Interested In:',
-        interest
-      ];
-
-      if (message) {
-        lines.push(
+        const lines = [
+          'NEW INQUIRY - OREXON LUXE',
+          '------------------------------',
           '',
-          'Message:',
-          message
-        );
-      }
+          'Name:', name,
+          '',
+          'Email:', email,
+          '',
+          'Company:', company,
+          '',
+          'Interested In:', interest
+        ];
 
-      lines.push(
-        '',
-        '------------------------------',
-        'Sent from OREXON LUXE website'
-      );
+        if (message) {
+          lines.push('', 'Message:', message);
+        }
 
-      const text = encodeURIComponent(lines.join('\n'));
-      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+        lines.push('', '------------------------------', 'Sent from OREXON LUXE website');
 
-      modalFormWrap.style.display = 'none';
-      modalSuccess.classList.add('show');
+        const text = encodeURIComponent(lines.join('\n'));
+        const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
 
-      setTimeout(() => {
-        window.open(waUrl, '_blank');
-      }, 400);
-    });
+        modalFormWrap.style.display = 'none';
+        modalSuccess.classList.add('show');
 
-    /* BRAND LOGO */
+        setTimeout(() => {
+          window.open(waUrl, '_blank');
+        }, 400);
+      });
+    }
+
+    /* ============================================================
+       BRAND LOGO
+       ============================================================ */
     document.querySelectorAll('.brand-logo').forEach(logo => {
       logo.addEventListener('click', (e) => {
         e.preventDefault();

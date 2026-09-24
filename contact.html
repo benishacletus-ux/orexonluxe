@@ -61,7 +61,8 @@
       align-items: center;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
+      overflow: visible;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       gap: 1rem;
       min-width: 0;
@@ -72,8 +73,8 @@
       align-items: center;
       gap: 2rem;
       flex-shrink: 0;
-      max-width: 40%;        /* Prevents crossing center logo */
-      overflow: hidden;      /* Clips rather than overlaps */
+      max-width: 40%;
+      overflow: visible;
     }
 
     .nav-left .nav-links {
@@ -119,13 +120,15 @@
       border: 1px solid rgba(207, 171, 85, 0.35);
       border-radius: 12px;
       padding: 0.6rem 0;
-      margin-top: 0.8rem;
+      margin-top: 0;
       opacity: 0;
       visibility: hidden;
       transform: translateY(10px);
-      transition: all 0.3s ease;
+      transform-origin: top left;
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-      z-index: 200;
+      z-index: 9999;
+      pointer-events: none;
     }
     .dropdown-menu::before {
       content: '';
@@ -143,6 +146,7 @@
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
+      pointer-events: auto;
     }
     .dropdown-menu a {
       display: flex;
@@ -186,7 +190,7 @@
       gap: 1.4rem;
       align-items: center;
       flex-shrink: 0;
-      max-width: 15%;        /* Symmetrical guard rail */
+      max-width: 15%;
       justify-content: flex-end;
     }
     .nav-right a {
@@ -395,12 +399,8 @@
 
     /* ============================================================
        RESPONSIVE — GRADUATED NAV BREAKPOINTS
-       Hamburger now activates at 1200px so 14" laptops
-       (effective widths ~1100–1300px) get the mobile menu
-       instead of an overlapping nav bar.
        ============================================================ */
 
-    /* Container padding */
     @media (min-width: 640px) {
       .container { padding-left: 2.5rem; padding-right: 2.5rem; }
       .page-hero { padding: 5rem 2.5rem; }
@@ -416,7 +416,6 @@
       .contact-info-grid { grid-template-columns: repeat(3, 1fr); }
     }
 
-    /* ---------- MEDIUM LAPTOP (1200px - 1399px) ---------- */
     @media (max-width: 1399px) {
       header { padding: 1.3rem 3rem; }
       .nav-left { gap: 1.5rem; }
@@ -429,10 +428,6 @@
       .brand-logo { font-size: 1.7rem; letter-spacing: 0.2em; }
     }
 
-    /* ============================================================
-       BELOW 1200px — SHOW HAMBURGER
-       (Covers 14" laptops, tablets, and phones)
-       ============================================================ */
     @media (max-width: 1200px) {
       header { padding: 1.2rem 1.5rem; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
@@ -446,7 +441,6 @@
       .contact-info-grid { grid-template-columns: repeat(3, 1fr); }
     }
 
-    /* Guard rail: only hide hamburger above 1200px */
     @media (min-width: 1201px) { .hamburger { display: none; } }
 
     @media (max-width: 640px) {
@@ -488,7 +482,6 @@
       .contact-info-grid { grid-template-columns: 1fr; }
     }
 
-    /* FLOATING BUTTONS — RESPONSIVE */
     @media (max-width: 968px) {
       .back-to-top, .whatsapp-float { right: 16px; }
       .back-to-top { bottom: 78px; width: 42px; height: 42px; font-size: 0.9rem; }
@@ -541,7 +534,8 @@
             <a href="products.html?category=soap-dispenser"><i class="fa-solid fa-pump-soap"></i> Soap Dispensers</a>
             <a href="products.html?category=landline-phone"><i class="fa-solid fa-phone"></i> Landline Phones</a>
             <a href="products.html?category=smart-toilet"><i class="fa-solid fa-toilet"></i> Smart Toilets</a>
-            <a href="products.html?category=hotel-amenities"><i class="fa-solid fa-hotel"></i> Hotel Amenities</a>
+            <a href="products.html?category=electric-kettle"><i class="fa-solid fa-mug-hot"></i> Electric Kettles</a>
+            <a href="products.html?category=hair-dryer"><i class="fa-solid fa-wind"></i> Hair Dryers</a>
           </div>
         </div>
         <a href="services.html">Services</a>
@@ -577,7 +571,8 @@
         <a href="products.html?category=soap-dispenser"><i class="fa-solid fa-pump-soap"></i> Soap Dispensers</a>
         <a href="products.html?category=landline-phone"><i class="fa-solid fa-phone"></i> Landline Phones</a>
         <a href="products.html?category=smart-toilet"><i class="fa-solid fa-toilet"></i> Smart Toilets</a>
-        <a href="products.html?category=hotel-amenities"><i class="fa-solid fa-hotel"></i> Hotel Amenities</a>
+        <a href="products.html?category=electric-kettle"><i class="fa-solid fa-mug-hot"></i> Electric Kettles</a>
+        <a href="products.html?category=hair-dryer"><i class="fa-solid fa-wind"></i> Hair Dryers</a>
       </div>
     </div>
     <a href="services.html">Services</a>
@@ -601,7 +596,7 @@
       <div class="info-card">
         <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
         <h3>Visit Us</h3>
-        <p>Aligarh<br>Uttar Pradesh, India</p>
+        <p>Sangwan City<br>Aligarh, UP - 202002</p>
       </div>
 
       <div class="info-card">
@@ -678,7 +673,8 @@
                 <option value="Soap Dispensers">Soap Dispensers</option>
                 <option value="Landline Phones">Landline Phones</option>
                 <option value="Smart Toilets">Smart Toilets</option>
-                <option value="Hotel Amenities">Hotel Amenities</option>
+                <option value="Electric Kettles">Electric Kettles</option>
+                <option value="Hair Dryers">Hair Dryers</option>
                 <option value="Bulk Order">Bulk Order / Quote</option>
                 <option value="Other">Other</option>
               </select>
@@ -709,11 +705,11 @@
 
         <div class="map-wrap">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112092.53154963908!2d77.9406971!3d27.8971947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3974a4868263e7f9%3A0x9f5e5e5e5e5e5e5e!2sAligarh%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000"
+            src="https://www.google.com/maps?q=27.894948,78.124656&hl=en&z=17&output=embed"
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            title="OREXON LUXE Office Location - Aligarh">
+            title="OREXON LUXE — Exact Location (Sangwan City, Aligarh)">
           </iframe>
         </div>
 
@@ -904,7 +900,8 @@
               <option value="Soap Dispensers">Soap Dispensers</option>
               <option value="Landline Phones">Landline Phones</option>
               <option value="Smart Toilets">Smart Toilets</option>
-              <option value="Hotel Amenities">Hotel Amenities (Hair Dryer, Kettle)</option>
+              <option value="Electric Kettles">Electric Kettles</option>
+              <option value="Hair Dryers">Hair Dryers</option>
               <option value="Full Catalog">Full B2B Catalog</option>
               <option value="Other">Other</option>
             </select>
@@ -932,7 +929,7 @@
     /* WHATSAPP NUMBER */
     const WHATSAPP_NUMBER = '919762769608';
 
-    /* THEME TOGGLE — loads before DOM ready */
+    /* THEME — load before DOM ready */
     (function initTheme() {
       try {
         const savedTheme = localStorage.getItem('orexon-theme') || 'dark';
@@ -942,35 +939,57 @@
       } catch (e) {}
     })();
 
-    /* HAMBURGER MENU */
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const mobileMenuClose = document.getElementById('mobileMenuClose');
+    /* ============================================================
+       DOM REFERENCES (declared FIRST so no TDZ errors)
+       ============================================================ */
+    const hamburger            = document.getElementById('hamburger');
+    const mobileMenu           = document.getElementById('mobileMenu');
+    const mobileMenuClose      = document.getElementById('mobileMenuClose');
+    const backToTop            = document.getElementById('backToTop');
+    const contactForm          = document.getElementById('contactForm');
+    const formContainer        = document.getElementById('formContainer');
+    const formSuccess          = document.getElementById('formSuccess');
+    const newMessageBtn        = document.getElementById('newMessageBtn');
+    const modalOverlay         = document.getElementById('modalOverlay');
+    const modalClose           = document.getElementById('modalClose');
+    const modalFormWrap        = document.getElementById('modalFormWrap');
+    const modalSuccess         = document.getElementById('modalSuccess');
+    const modalTitle           = document.getElementById('modalTitle');
+    const modalSub             = document.getElementById('modalSub');
+    const inquiryForm          = document.getElementById('inquiryForm');
+    const successClose         = document.getElementById('successClose');
+    const mobileProductsDropdown = document.getElementById('mobileProductsDropdown');
+    const mobileProductsToggle   = document.getElementById('mobileProductsToggle');
 
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      mobileMenu.classList.toggle('active');
-      document.body.classList.toggle('no-scroll');
-    });
-
-    hamburger.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        hamburger.click();
-      }
-    });
-
-    mobileMenuClose.addEventListener('click', () => closeMobileMenu());
-
+    /* ============================================================
+       MOBILE MENU
+       ============================================================ */
     function closeMobileMenu() {
-      hamburger.classList.remove('active');
-      mobileMenu.classList.remove('active');
+      if (hamburger) hamburger.classList.remove('active');
+      if (mobileMenu) mobileMenu.classList.remove('active');
       document.body.classList.remove('no-scroll');
     }
 
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        document.body.classList.toggle('no-scroll');
+      });
+
+      hamburger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          hamburger.click();
+        }
+      });
+    }
+
+    if (mobileMenuClose) {
+      mobileMenuClose.addEventListener('click', closeMobileMenu);
+    }
+
     /* MOBILE PRODUCTS DROPDOWN */
-    const mobileProductsDropdown = document.getElementById('mobileProductsDropdown');
-    const mobileProductsToggle = document.getElementById('mobileProductsToggle');
     if (mobileProductsToggle) {
       mobileProductsToggle.addEventListener('click', (e) => {
         e.preventDefault();
@@ -978,24 +997,27 @@
       });
     }
 
+    /* ESC key — close menu + modal */
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        if (mobileMenu.classList.contains('active')) closeMobileMenu();
-        if (modalOverlay.classList.contains('active')) closeModal();
+        if (mobileMenu && mobileMenu.classList.contains('active')) closeMobileMenu();
+        if (modalOverlay && modalOverlay.classList.contains('active')) closeModal();
       }
     });
 
+    /* Resize — auto close mobile menu above 1200px */
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 1200 && mobileMenu.classList.contains('active')) {
+      if (window.innerWidth > 1200 && mobileMenu && mobileMenu.classList.contains('active')) {
         closeMobileMenu();
       }
     });
 
-    /* THEME TOGGLE — Icon + Click handling */
+    /* ============================================================
+       THEME TOGGLE
+       ============================================================ */
     document.addEventListener('DOMContentLoaded', () => {
       const themeToggle = document.getElementById('themeToggle');
-      const themeIcon = document.getElementById('themeIcon');
-
+      const themeIcon   = document.getElementById('themeIcon');
       if (!themeToggle || !themeIcon) return;
 
       function applyTheme(theme) {
@@ -1013,7 +1035,8 @@
         try { localStorage.setItem('orexon-theme', theme); } catch (e) {}
       }
 
-      const currentTheme = localStorage.getItem('orexon-theme') || 'dark';
+      let currentTheme = 'dark';
+      try { currentTheme = localStorage.getItem('orexon-theme') || 'dark'; } catch (e) {}
       applyTheme(currentTheme);
 
       themeToggle.addEventListener('click', () => {
@@ -1029,99 +1052,72 @@
       });
     });
 
-    /* BACK TO TOP */
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 400) {
-        backToTop.classList.add('show');
-      } else {
-        backToTop.classList.remove('show');
-      }
-    });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    /* ============================================================
+       BACK TO TOP
+       ============================================================ */
+    if (backToTop) {
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 400) backToTop.classList.add('show');
+        else backToTop.classList.remove('show');
+      });
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
 
-    /* CONTACT FORM SUBMIT → WhatsApp */
-    const contactForm = document.getElementById('contactForm');
-    const formContainer = document.getElementById('formContainer');
-    const formSuccess = document.getElementById('formSuccess');
-    const newMessageBtn = document.getElementById('newMessageBtn');
+    /* ============================================================
+       CONTACT FORM → WhatsApp
+       ============================================================ */
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
+        const name    = document.getElementById('cName').value.trim();
+        const email   = document.getElementById('cEmail').value.trim();
+        const phone   = document.getElementById('cPhone').value.trim();
+        const company = document.getElementById('cCompany').value.trim();
+        const subject = document.getElementById('cSubject').value;
+        const message = document.getElementById('cMessage').value.trim();
 
-      const name = document.getElementById('cName').value.trim();
-      const email = document.getElementById('cEmail').value.trim();
-      const phone = document.getElementById('cPhone').value.trim();
-      const company = document.getElementById('cCompany').value.trim();
-      const subject = document.getElementById('cSubject').value;
-      const message = document.getElementById('cMessage').value.trim();
-
-      const lines = [
-        'NEW CONTACT MESSAGE - OREXON LUXE',
-        '------------------------------',
-        '',
-        'Name:',
-        name,
-        '',
-        'Email:',
-        email
-      ];
-
-      if (phone) {
-        lines.push(
+        const lines = [
+          'NEW CONTACT MESSAGE - OREXON LUXE',
+          '------------------------------',
           '',
-          'Phone:',
-          phone
-        );
-      }
-
-      lines.push(
-        '',
-        'Company:',
-        company,
-        '',
-        'Subject:',
-        subject
-      );
-
-      if (message) {
-        lines.push(
+          'Name:', name,
           '',
-          'Message:',
-          message
-        );
-      }
+          'Email:', email
+        ];
+        if (phone) lines.push('', 'Phone:', phone);
+        lines.push('', 'Company:', company, '', 'Subject:', subject);
+        if (message) lines.push('', 'Message:', message);
+        lines.push('', '------------------------------', 'Sent from OREXON LUXE website');
 
-      lines.push(
-        '',
-        '------------------------------',
-        'Sent from OREXON LUXE website'
-      );
+        const text  = encodeURIComponent(lines.join('\n'));
+        const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
 
-      const text = encodeURIComponent(lines.join('\n'));
-      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+        formContainer.style.display = 'none';
+        formSuccess.classList.add('show');
+        formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-      formContainer.style.display = 'none';
-      formSuccess.classList.add('show');
-      formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(() => window.open(waUrl, '_blank'), 400);
+      });
+    }
 
-      setTimeout(() => {
-        window.open(waUrl, '_blank');
-      }, 400);
-    });
+    if (newMessageBtn) {
+      newMessageBtn.addEventListener('click', () => {
+        contactForm.reset();
+        formSuccess.classList.remove('show');
+        formContainer.style.display = 'block';
+        formContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    }
 
-    newMessageBtn.addEventListener('click', () => {
-      contactForm.reset();
-      formSuccess.classList.remove('show');
-      formContainer.style.display = 'block';
-      formContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    });
-
-    /* FAQ ACCORDION */
+    /* ============================================================
+       FAQ ACCORDION
+       ============================================================ */
     document.querySelectorAll('.faq-item').forEach(item => {
       const question = item.querySelector('.faq-question');
+      if (!question) return;
       question.addEventListener('click', () => {
         const isOpen = item.classList.contains('open');
         document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
@@ -1129,27 +1125,22 @@
       });
     });
 
-    /* MODAL */
-    const modalOverlay = document.getElementById('modalOverlay');
-    const modalClose = document.getElementById('modalClose');
-    const modalFormWrap = document.getElementById('modalFormWrap');
-    const modalSuccess = document.getElementById('modalSuccess');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalSub = document.getElementById('modalSub');
-    const inquiryForm = document.getElementById('inquiryForm');
-    const successClose = document.getElementById('successClose');
-
+    /* ============================================================
+       MODAL
+       ============================================================ */
     function openModal(prefillInterest, titleText) {
+      if (!modalOverlay) return;
       modalFormWrap.style.display = 'block';
       modalSuccess.classList.remove('show');
       modalTitle.textContent = titleText || 'Send Inquiry';
-      modalSub.textContent = 'Fill in your details and we\'ll get back within 24 hours.';
+      modalSub.textContent = "Fill in your details and we'll get back within 24 hours.";
 
       const select = document.getElementById('inqInterest');
-      if (prefillInterest) {
+      if (prefillInterest && select) {
         let matched = false;
         Array.from(select.options).forEach(opt => {
-          if (opt.value === prefillInterest || prefillInterest.toLowerCase().includes(opt.value.toLowerCase())) {
+          if (opt.value === prefillInterest ||
+              prefillInterest.toLowerCase().includes(opt.value.toLowerCase())) {
             select.value = opt.value;
             matched = true;
           }
@@ -1159,25 +1150,31 @@
 
       modalOverlay.classList.add('active');
       document.body.classList.add('no-scroll');
-      setTimeout(() => document.getElementById('inqName').focus(), 350);
+      setTimeout(() => {
+        const inqName = document.getElementById('inqName');
+        if (inqName) inqName.focus();
+      }, 350);
     }
 
     function closeModal() {
+      if (!modalOverlay) return;
       modalOverlay.classList.remove('active');
       document.body.classList.remove('no-scroll');
       setTimeout(() => {
-        inquiryForm.reset();
-        modalFormWrap.style.display = 'block';
-        modalSuccess.classList.remove('show');
+        if (inquiryForm) inquiryForm.reset();
+        if (modalFormWrap) modalFormWrap.style.display = 'block';
+        if (modalSuccess) modalSuccess.classList.remove('show');
       }, 300);
       document.dispatchEvent(new Event('modalClosed'));
     }
 
-    modalClose.addEventListener('click', closeModal);
-    successClose.addEventListener('click', closeModal);
-    modalOverlay.addEventListener('click', (e) => {
-      if (e.target === modalOverlay) closeModal();
-    });
+    if (modalClose)  modalClose.addEventListener('click', closeModal);
+    if (successClose) successClose.addEventListener('click', closeModal);
+    if (modalOverlay) {
+      modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) closeModal();
+      });
+    }
 
     document.querySelectorAll('[data-inquiry]').forEach(el => {
       el.addEventListener('click', (e) => {
@@ -1194,58 +1191,43 @@
     });
 
     /* Modal submit → WhatsApp */
-    inquiryForm.addEventListener('submit', (e) => {
-      e.preventDefault();
+    if (inquiryForm) {
+      inquiryForm.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-      const name = document.getElementById('inqName').value.trim();
-      const email = document.getElementById('inqEmail').value.trim();
-      const company = document.getElementById('inqCompany').value.trim();
-      const interest = document.getElementById('inqInterest').value;
-      const message = document.getElementById('inqMessage').value.trim();
+        const name     = document.getElementById('inqName').value.trim();
+        const email    = document.getElementById('inqEmail').value.trim();
+        const company  = document.getElementById('inqCompany').value.trim();
+        const interest = document.getElementById('inqInterest').value;
+        const message  = document.getElementById('inqMessage').value.trim();
 
-      const lines = [
-        'NEW INQUIRY - OREXON LUXE',
-        '------------------------------',
-        '',
-        'Name:',
-        name,
-        '',
-        'Email:',
-        email,
-        '',
-        'Company:',
-        company,
-        '',
-        'Interested In:',
-        interest
-      ];
-
-      if (message) {
-        lines.push(
+        const lines = [
+          'NEW INQUIRY - OREXON LUXE',
+          '------------------------------',
           '',
-          'Message:',
-          message
-        );
-      }
+          'Name:', name,
+          '',
+          'Email:', email,
+          '',
+          'Company:', company,
+          '',
+          'Interested In:', interest
+        ];
+        if (message) lines.push('', 'Message:', message);
+        lines.push('', '------------------------------', 'Sent from OREXON LUXE website');
 
-      lines.push(
-        '',
-        '------------------------------',
-        'Sent from OREXON LUXE website'
-      );
+        const text  = encodeURIComponent(lines.join('\n'));
+        const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
 
-      const text = encodeURIComponent(lines.join('\n'));
-      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+        modalFormWrap.style.display = 'none';
+        modalSuccess.classList.add('show');
+        setTimeout(() => window.open(waUrl, '_blank'), 400);
+      });
+    }
 
-      modalFormWrap.style.display = 'none';
-      modalSuccess.classList.add('show');
-
-      setTimeout(() => {
-        window.open(waUrl, '_blank');
-      }, 400);
-    });
-
-    /* BRAND LOGO */
+    /* ============================================================
+       BRAND LOGO — scroll top
+       ============================================================ */
     document.querySelectorAll('.brand-logo').forEach(logo => {
       logo.addEventListener('click', (e) => {
         e.preventDefault();

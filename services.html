@@ -59,7 +59,8 @@
       align-items: center;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;              /* FIX */
+      overflow: visible;          /* FIX */
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       gap: 1rem;
       min-width: 0;
@@ -70,8 +71,8 @@
       align-items: center;
       gap: 2rem;
       flex-shrink: 0;
-      max-width: 40%;        /* Prevents crossing center logo */
-      overflow: hidden;      /* Clips rather than overlaps */
+      max-width: 40%;
+      overflow: visible;          /* FIX */
     }
     .nav-left .nav-links { display: flex; align-items: center; flex-wrap: nowrap; }
     .nav-left .nav-links > a,
@@ -99,9 +100,9 @@
     .nav-dropdown { position: relative; display: inline-block; }
     .nav-dropdown > a i { font-size: 0.6rem; transition: transform 0.3s ease; }
     .nav-dropdown:hover > a i { transform: rotate(180deg); }
-    .dropdown-menu { position: absolute; top: 100%; left: -1rem; min-width: 220px; background: var(--card-dark); border: 1px solid rgba(207, 171, 85, 0.35); border-radius: 12px; padding: 0.6rem 0; margin-top: 0.8rem; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6); z-index: 200; }
+    .dropdown-menu { position: absolute; top: 100%; left: -1rem; min-width: 220px; background: var(--card-dark); border: 1px solid rgba(207, 171, 85, 0.35); border-radius: 12px; padding: 0.6rem 0; margin-top: 0; opacity: 0; visibility: hidden; transform: translateY(10px); transform-origin: top left; transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6); z-index: 9999; pointer-events: none; }
     .dropdown-menu::before { content: ''; position: absolute; top: -6px; left: 2rem; width: 12px; height: 12px; background: var(--card-dark); border-left: 1px solid rgba(207, 171, 85, 0.35); border-top: 1px solid rgba(207, 171, 85, 0.35); transform: rotate(45deg); }
-    .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+    .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto; }
     .dropdown-menu a { display: flex; align-items: center; gap: 0.7rem; padding: 0.65rem 1.3rem; color: var(--text-muted); text-decoration: none; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; transition: all 0.25s ease; cursor: pointer; font-family: 'Montserrat', sans-serif; margin: 0; white-space: nowrap; }
     .dropdown-menu a i { font-size: 0.75rem; color: var(--gold-primary); width: 16px; text-align: center; }
     .dropdown-menu a:hover { color: var(--gold-light); background: rgba(207, 171, 85, 0.08); padding-left: 1.6rem; }
@@ -265,9 +266,6 @@
 
     /* ============================================================
        RESPONSIVE — GRADUATED NAV BREAKPOINTS
-       Hamburger now activates at 1200px so 14" laptops
-       (effective widths ~1100–1300px) get the mobile menu
-       instead of an overlapping nav bar.
        ============================================================ */
     @media (min-width: 640px) {
       .container { padding-left: 2.5rem; padding-right: 2.5rem; }
@@ -283,7 +281,6 @@
       .page-hero h1 { font-size: 3.2rem; }
     }
 
-    /* ---------- MEDIUM LAPTOP (1200px - 1399px) ---------- */
     @media (max-width: 1399px) {
       header { padding: 1.3rem 3rem; }
       .nav-left { gap: 1.5rem; }
@@ -296,10 +293,6 @@
       .brand-logo { font-size: 1.7rem; letter-spacing: 0.2em; }
     }
 
-    /* ============================================================
-       BELOW 1200px — SHOW HAMBURGER
-       (Covers 14" laptops, tablets, and phones)
-       ============================================================ */
     @media (max-width: 1200px) {
       header { padding: 1.2rem 1.5rem; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
@@ -313,7 +306,6 @@
       .brand-logo { font-size: 1.4rem; letter-spacing: 0.18em; }
     }
 
-    /* Guard rail: only hide hamburger above 1200px */
     @media (min-width: 1201px) { .hamburger { display: none; } }
 
     @media (max-width: 640px) {
@@ -375,7 +367,6 @@
       .footer-socials a { width: 42px; height: 42px; font-size: 0.95rem; }
     }
 
-    /* FLOATING BUTTONS — RESPONSIVE */
     @media (max-width: 968px) {
       .back-to-top,
       .whatsapp-float { right: 16px; }
@@ -432,7 +423,8 @@
             <a href="products.html?category=soap-dispenser"><i class="fa-solid fa-pump-soap"></i> Soap Dispensers</a>
             <a href="products.html?category=landline-phone"><i class="fa-solid fa-phone"></i> Landline Phones</a>
             <a href="products.html?category=smart-toilet"><i class="fa-solid fa-toilet"></i> Smart Toilets</a>
-            <a href="products.html?category=hotel-amenities"><i class="fa-solid fa-hotel"></i> Hotel Amenities</a>
+            <a href="products.html?category=electric-kettle"><i class="fa-solid fa-mug-hot"></i> Electric Kettles</a>
+            <a href="products.html?category=hair-dryer"><i class="fa-solid fa-wind"></i> Hair Dryers</a>
           </div>
         </div>
         <a href="services.html" class="active">Services</a>
@@ -468,7 +460,8 @@
         <a href="products.html?category=soap-dispenser"><i class="fa-solid fa-pump-soap"></i> Soap Dispensers</a>
         <a href="products.html?category=landline-phone"><i class="fa-solid fa-phone"></i> Landline Phones</a>
         <a href="products.html?category=smart-toilet"><i class="fa-solid fa-toilet"></i> Smart Toilets</a>
-        <a href="products.html?category=hotel-amenities"><i class="fa-solid fa-hotel"></i> Hotel Amenities</a>
+        <a href="products.html?category=electric-kettle"><i class="fa-solid fa-mug-hot"></i> Electric Kettles</a>
+        <a href="products.html?category=hair-dryer"><i class="fa-solid fa-wind"></i> Hair Dryers</a>
       </div>
     </div>
     <a href="services.html">Services</a>
@@ -680,7 +673,8 @@
               <option value="Soap Dispensers">Soap Dispensers</option>
               <option value="Landline Phones">Landline Phones</option>
               <option value="Smart Toilets">Smart Toilets</option>
-              <option value="Hotel Amenities">Hotel Amenities (Hair Dryer, Kettle)</option>
+              <option value="Electric Kettles">Electric Kettles</option>
+              <option value="Hair Dryers">Hair Dryers</option>
               <option value="Full Catalog">Full B2B Catalog</option>
               <option value="Other">Other</option>
             </select>
@@ -705,7 +699,7 @@
   </div>
 
   <script>
-    /* WHATSAPP NUMBER — OREXON LUXE */
+    /* WHATSAPP NUMBER */
     const WHATSAPP_NUMBER = '919762769608';
 
     /* THEME INIT */
@@ -718,35 +712,53 @@
       } catch (e) {}
     })();
 
-    /* HAMBURGER MENU */
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const mobileMenuClose = document.getElementById('mobileMenuClose');
+    /* ============================================================
+       DOM REFERENCES (declared FIRST so no TDZ errors)
+       ============================================================ */
+    const hamburger              = document.getElementById('hamburger');
+    const mobileMenu             = document.getElementById('mobileMenu');
+    const mobileMenuClose        = document.getElementById('mobileMenuClose');
+    const mobileProductsDropdown = document.getElementById('mobileProductsDropdown');
+    const mobileProductsToggle   = document.getElementById('mobileProductsToggle');
+    const backToTop              = document.getElementById('backToTop');
+    const modalOverlay           = document.getElementById('modalOverlay');
+    const modalClose             = document.getElementById('modalClose');
+    const modalFormWrap          = document.getElementById('modalFormWrap');
+    const modalSuccess           = document.getElementById('modalSuccess');
+    const modalTitle             = document.getElementById('modalTitle');
+    const modalSub               = document.getElementById('modalSub');
+    const inquiryForm            = document.getElementById('inquiryForm');
+    const successClose           = document.getElementById('successClose');
 
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      mobileMenu.classList.toggle('active');
-      document.body.classList.toggle('no-scroll');
-    });
-
-    hamburger.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        hamburger.click();
-      }
-    });
-
-    mobileMenuClose.addEventListener('click', () => closeMobileMenu());
-
+    /* ============================================================
+       MOBILE MENU
+       ============================================================ */
     function closeMobileMenu() {
-      hamburger.classList.remove('active');
-      mobileMenu.classList.remove('active');
+      if (hamburger) hamburger.classList.remove('active');
+      if (mobileMenu) mobileMenu.classList.remove('active');
       document.body.classList.remove('no-scroll');
     }
 
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        document.body.classList.toggle('no-scroll');
+      });
+
+      hamburger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          hamburger.click();
+        }
+      });
+    }
+
+    if (mobileMenuClose) {
+      mobileMenuClose.addEventListener('click', closeMobileMenu);
+    }
+
     /* MOBILE PRODUCTS DROPDOWN */
-    const mobileProductsDropdown = document.getElementById('mobileProductsDropdown');
-    const mobileProductsToggle = document.getElementById('mobileProductsToggle');
     if (mobileProductsToggle) {
       mobileProductsToggle.addEventListener('click', (e) => {
         e.preventDefault();
@@ -754,20 +766,24 @@
       });
     }
 
+    /* ESC key — close menu + modal */
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        if (mobileMenu.classList.contains('active')) closeMobileMenu();
-        if (modalOverlay.classList.contains('active')) closeModal();
+        if (mobileMenu && mobileMenu.classList.contains('active')) closeMobileMenu();
+        if (modalOverlay && modalOverlay.classList.contains('active')) closeModal();
       }
     });
 
+    /* Resize — auto close mobile menu above 1200px */
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 1200 && mobileMenu.classList.contains('active')) {
+      if (window.innerWidth > 1200 && mobileMenu && mobileMenu.classList.contains('active')) {
         closeMobileMenu();
       }
     });
 
-    /* THEME TOGGLE */
+    /* ============================================================
+       THEME TOGGLE
+       ============================================================ */
     document.addEventListener('DOMContentLoaded', () => {
       const themeToggle = document.getElementById('themeToggle');
       const themeIcon = document.getElementById('themeIcon');
@@ -788,7 +804,9 @@
         try { localStorage.setItem('orexon-theme', theme); } catch (e) {}
       }
 
-      applyTheme(localStorage.getItem('orexon-theme') || 'dark');
+      let currentTheme = 'dark';
+      try { currentTheme = localStorage.getItem('orexon-theme') || 'dark'; } catch (e) {}
+      applyTheme(currentTheme);
 
       themeToggle.addEventListener('click', () => {
         const isLight = document.documentElement.getAttribute('data-theme') === 'light';
@@ -803,37 +821,31 @@
       });
     });
 
-    /* BACK TO TOP */
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 400) {
-        backToTop.classList.add('show');
-      } else {
-        backToTop.classList.remove('show');
-      }
-    });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    /* ============================================================
+       BACK TO TOP
+       ============================================================ */
+    if (backToTop) {
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 400) backToTop.classList.add('show');
+        else backToTop.classList.remove('show');
+      });
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
 
-    /* MODAL */
-    const modalOverlay = document.getElementById('modalOverlay');
-    const modalClose = document.getElementById('modalClose');
-    const modalFormWrap = document.getElementById('modalFormWrap');
-    const modalSuccess = document.getElementById('modalSuccess');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalSub = document.getElementById('modalSub');
-    const inquiryForm = document.getElementById('inquiryForm');
-    const successClose = document.getElementById('successClose');
-
+    /* ============================================================
+       MODAL
+       ============================================================ */
     function openModal(prefillInterest, titleText) {
+      if (!modalOverlay) return;
       modalFormWrap.style.display = 'block';
       modalSuccess.classList.remove('show');
       modalTitle.textContent = titleText || 'Send Inquiry';
-      modalSub.textContent = 'Fill in your details and we\'ll get back within 24 hours.';
+      modalSub.textContent = "Fill in your details and we'll get back within 24 hours.";
 
       const select = document.getElementById('inqInterest');
-      if (prefillInterest) {
+      if (prefillInterest && select) {
         let matched = false;
         Array.from(select.options).forEach(opt => {
           if (opt.value === prefillInterest || prefillInterest.toLowerCase().includes(opt.value.toLowerCase())) {
@@ -846,24 +858,30 @@
 
       modalOverlay.classList.add('active');
       document.body.classList.add('no-scroll');
-      setTimeout(() => document.getElementById('inqName').focus(), 350);
+      setTimeout(() => {
+        const inqName = document.getElementById('inqName');
+        if (inqName) inqName.focus();
+      }, 350);
     }
 
     function closeModal() {
+      if (!modalOverlay) return;
       modalOverlay.classList.remove('active');
       document.body.classList.remove('no-scroll');
       setTimeout(() => {
-        inquiryForm.reset();
-        modalFormWrap.style.display = 'block';
-        modalSuccess.classList.remove('show');
+        if (inquiryForm) inquiryForm.reset();
+        if (modalFormWrap) modalFormWrap.style.display = 'block';
+        if (modalSuccess) modalSuccess.classList.remove('show');
       }, 300);
     }
 
-    modalClose.addEventListener('click', closeModal);
-    successClose.addEventListener('click', closeModal);
-    modalOverlay.addEventListener('click', (e) => {
-      if (e.target === modalOverlay) closeModal();
-    });
+    if (modalClose) modalClose.addEventListener('click', closeModal);
+    if (successClose) successClose.addEventListener('click', closeModal);
+    if (modalOverlay) {
+      modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) closeModal();
+      });
+    }
 
     document.querySelectorAll('[data-inquiry]').forEach(el => {
       el.addEventListener('click', (e) => {
@@ -884,58 +902,48 @@
     });
 
     /* Submit → WhatsApp — CLEAN PLAIN TEXT */
-    inquiryForm.addEventListener('submit', (e) => {
-      e.preventDefault();
+    if (inquiryForm) {
+      inquiryForm.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-      const name = document.getElementById('inqName').value.trim();
-      const email = document.getElementById('inqEmail').value.trim();
-      const company = document.getElementById('inqCompany').value.trim();
-      const interest = document.getElementById('inqInterest').value;
-      const message = document.getElementById('inqMessage').value.trim();
+        const name = document.getElementById('inqName').value.trim();
+        const email = document.getElementById('inqEmail').value.trim();
+        const company = document.getElementById('inqCompany').value.trim();
+        const interest = document.getElementById('inqInterest').value;
+        const message = document.getElementById('inqMessage').value.trim();
 
-      const lines = [
-        'NEW INQUIRY - OREXON LUXE',
-        '------------------------------',
-        '',
-        'Name:',
-        name,
-        '',
-        'Email:',
-        email,
-        '',
-        'Company:',
-        company,
-        '',
-        'Interested In:',
-        interest
-      ];
-
-      if (message) {
-        lines.push(
+        const lines = [
+          'NEW INQUIRY - OREXON LUXE',
+          '------------------------------',
           '',
-          'Message:',
-          message
-        );
-      }
+          'Name:', name,
+          '',
+          'Email:', email,
+          '',
+          'Company:', company,
+          '',
+          'Interested In:', interest
+        ];
 
-      lines.push(
-        '',
-        '------------------------------',
-        'Sent from OREXON LUXE website'
-      );
+        if (message) {
+          lines.push('', 'Message:', message);
+        }
 
-      const text = encodeURIComponent(lines.join('\n'));
-      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+        lines.push('', '------------------------------', 'Sent from OREXON LUXE website');
 
-      modalFormWrap.style.display = 'none';
-      modalSuccess.classList.add('show');
+        const text = encodeURIComponent(lines.join('\n'));
+        const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
 
-      setTimeout(() => {
-        window.open(waUrl, '_blank');
-      }, 400);
-    });
+        modalFormWrap.style.display = 'none';
+        modalSuccess.classList.add('show');
 
-    /* BRAND LOGO */
+        setTimeout(() => window.open(waUrl, '_blank'), 400);
+      });
+    }
+
+    /* ============================================================
+       BRAND LOGO
+       ============================================================ */
     document.querySelectorAll('.brand-logo').forEach(logo => {
       logo.addEventListener('click', (e) => {
         e.preventDefault();

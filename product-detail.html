@@ -79,7 +79,8 @@
       align-items: center;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
+      overflow: visible;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       gap: 1rem;
       min-width: 0;
@@ -90,8 +91,8 @@
       align-items: center;
       gap: 2rem;
       flex-shrink: 0;
-      max-width: 40%;        /* Prevents crossing center logo */
-      overflow: hidden;      /* Clips rather than overlaps */
+      max-width: 40%;
+      overflow: visible;
     }
 
     .nav-left .nav-links {
@@ -127,9 +128,9 @@
     .nav-dropdown { position: relative; display: inline-block; }
     .nav-dropdown > a i { font-size: 0.6rem; transition: transform 0.3s ease; }
     .nav-dropdown:hover > a i { transform: rotate(180deg); }
-    .dropdown-menu { position: absolute; top: 100%; left: -1rem; min-width: 220px; background: var(--card-dark); border: 1px solid rgba(207, 171, 85, 0.35); border-radius: 12px; padding: 0.6rem 0; margin-top: 0.8rem; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6); z-index: 200; }
+    .dropdown-menu { position: absolute; top: 100%; left: -1rem; min-width: 220px; background: var(--card-dark); border: 1px solid rgba(207, 171, 85, 0.35); border-radius: 12px; padding: 0.6rem 0; margin-top: 0; opacity: 0; visibility: hidden; transform: translateY(10px); transform-origin: top left; transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6); z-index: 9999; pointer-events: none; }
     .dropdown-menu::before { content: ''; position: absolute; top: -6px; left: 2rem; width: 12px; height: 12px; background: var(--card-dark); border-left: 1px solid rgba(207, 171, 85, 0.35); border-top: 1px solid rgba(207, 171, 85, 0.35); transform: rotate(45deg); }
-    .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+    .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto; }
     .dropdown-menu a { display: flex; align-items: center; gap: 0.7rem; padding: 0.65rem 1.3rem; color: var(--text-muted); text-decoration: none; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; transition: all 0.25s ease; cursor: pointer; font-family: 'Montserrat', sans-serif; margin: 0; white-space: nowrap; }
     .dropdown-menu a i { font-size: 0.75rem; color: var(--gold-primary); width: 16px; text-align: center; }
     .dropdown-menu a:hover { color: var(--gold-light); background: rgba(207, 171, 85, 0.08); padding-left: 1.6rem; }
@@ -400,9 +401,6 @@
 
     /* ============================================================
        RESPONSIVE — GRADUATED NAV BREAKPOINTS
-       Hamburger now activates at 1200px so 14" laptops
-       (effective widths ~1100–1300px) get the mobile menu
-       instead of an overlapping nav bar.
        ============================================================ */
     @media (min-width: 640px) {
       .container { padding-left: 2.5rem; padding-right: 2.5rem; }
@@ -416,7 +414,6 @@
       .related-grid { grid-template-columns: repeat(3, 1fr); gap: 2.8rem 2rem; }
     }
 
-    /* ---------- MEDIUM LAPTOP (1200px - 1399px) ---------- */
     @media (max-width: 1399px) {
       header { padding: 1.3rem 3rem; }
       .nav-left { gap: 1.5rem; }
@@ -429,10 +426,6 @@
       .brand-logo { font-size: 1.7rem; letter-spacing: 0.2em; }
     }
 
-    /* ============================================================
-       BELOW 1200px — SHOW HAMBURGER
-       (Covers 14" laptops, tablets, and phones)
-       ============================================================ */
     @media (max-width: 1200px) {
       header { padding: 1.2rem 1.5rem; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
@@ -447,7 +440,6 @@
       .related-grid { grid-template-columns: repeat(2, 1fr); gap: 2.6rem 2rem; }
     }
 
-    /* Guard rail: only hide hamburger above 1200px */
     @media (min-width: 1201px) { .hamburger { display: none; } }
 
     @media (max-width: 640px) {
@@ -482,7 +474,6 @@
       .footer-socials a { width: 42px; height: 42px; font-size: 0.95rem; }
     }
 
-    /* FLOATING BUTTONS — RESPONSIVE */
     @media (max-width: 968px) {
       .back-to-top,
       .whatsapp-float { right: 16px; }
@@ -547,7 +538,8 @@
             <a href="products.html?category=soap-dispenser"><i class="fa-solid fa-pump-soap"></i> Soap Dispensers</a>
             <a href="products.html?category=landline-phone"><i class="fa-solid fa-phone"></i> Landline Phones</a>
             <a href="products.html?category=smart-toilet"><i class="fa-solid fa-toilet"></i> Smart Toilets</a>
-            <a href="products.html?category=hotel-amenities"><i class="fa-solid fa-hotel"></i> Hotel Amenities</a>
+            <a href="products.html?category=electric-kettle"><i class="fa-solid fa-mug-hot"></i> Electric Kettles</a>
+            <a href="products.html?category=hair-dryer"><i class="fa-solid fa-wind"></i> Hair Dryers</a>
           </div>
         </div>
         <a href="services.html">Services</a>
@@ -583,7 +575,8 @@
         <a href="products.html?category=soap-dispenser"><i class="fa-solid fa-pump-soap"></i> Soap Dispensers</a>
         <a href="products.html?category=landline-phone"><i class="fa-solid fa-phone"></i> Landline Phones</a>
         <a href="products.html?category=smart-toilet"><i class="fa-solid fa-toilet"></i> Smart Toilets</a>
-        <a href="products.html?category=hotel-amenities"><i class="fa-solid fa-hotel"></i> Hotel Amenities</a>
+        <a href="products.html?category=electric-kettle"><i class="fa-solid fa-mug-hot"></i> Electric Kettles</a>
+        <a href="products.html?category=hair-dryer"><i class="fa-solid fa-wind"></i> Hair Dryers</a>
       </div>
     </div>
     <a href="services.html">Services</a>
@@ -976,12 +969,12 @@
         ]
       },
 
-      /* ---------- HOTEL AMENITIES ---------- */
+      /* ---------- HAIR DRYERS (separate category) ---------- */
       'hair-dryer': {
         name: 'Orexon Luxe High Speed Hair Dryer',
-        category: 'Hotel Amenities',
-        categorySlug: 'hotel-amenities',
-        categoryIcon: 'fa-hotel',
+        category: 'Hair Dryers',
+        categorySlug: 'hair-dryer',
+        categoryIcon: 'fa-wind',
         description: 'Wall-mounted hotel hair dryer with high-speed drying and safety features. Designed for premium guestroom bathrooms with a sleek, compact profile.',
         image: 'orexonluxe-nobg/hairdryer-1.webp',
         specs: [
@@ -992,11 +985,13 @@
           { icon: 'fa-award', text: '6-Month Warranty' }
         ]
       },
+
+      /* ---------- ELECTRIC KETTLES (separate category) ---------- */
       'electric-kettle': {
         name: 'Electric Tea Kettle with Cups & Tray',
-        category: 'Hotel Amenities',
-        categorySlug: 'hotel-amenities',
-        categoryIcon: 'fa-hotel',
+        category: 'Electric Kettles',
+        categorySlug: 'electric-kettle',
+        categoryIcon: 'fa-mug-hot',
         description: 'Premium electric kettle set with cups and tray for guestroom hospitality. Elegant presentation and reliable performance in one complete package.',
         image: 'orexonluxe-nobg/kettle-1.webp',
         specs: [
@@ -1009,9 +1004,9 @@
       },
       'compact-electric-kettle': {
         name: 'Compact Electric Kettle',
-        category: 'Hotel Amenities',
-        categorySlug: 'hotel-amenities',
-        categoryIcon: 'fa-hotel',
+        category: 'Electric Kettles',
+        categorySlug: 'electric-kettle',
+        categoryIcon: 'fa-mug-hot',
         description: 'Space-saving compact electric kettle for premium guestroom hospitality. Delivers fast boiling with a minimal footprint.',
         image: 'orexonluxe-nobg/kettle-2.webp',
         specs: [

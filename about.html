@@ -3,12 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OREXON LUXE — Services & Solutions | Premium Hotel & Hospitality Supplies</title>
+  <meta name="theme-color" content="#0d0e11" />
+  <title>OREXON LUXE — About Us | Premium Hotel & Hospitality Supplies</title>
+  <meta name="description" content="Learn about OREXON LUXE — a trusted supplier of premium hotel and commercial amenities based in Aligarh, Uttar Pradesh, serving distinguished properties across India." />
 
+  <!-- Google Fonts: Cormorant Garamond & Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+  <!-- Font Awesome 6 (Free) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
@@ -59,7 +63,8 @@
       align-items: center;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
+      overflow: visible;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       gap: 1rem;
       min-width: 0;
@@ -71,9 +76,15 @@
       gap: 2rem;
       flex-shrink: 0;
       max-width: 40%;
-      overflow: hidden;
+      overflow: visible;
     }
-    .nav-left .nav-links { display: flex; align-items: center; flex-wrap: nowrap; }
+
+    .nav-left .nav-links {
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+    }
+
     .nav-left .nav-links > a,
     .nav-left .nav-links .nav-dropdown > a {
       color: var(--text-muted);
@@ -90,7 +101,9 @@
       white-space: nowrap;
     }
     .nav-left .nav-links > a:last-child,
-    .nav-left .nav-links .nav-dropdown:last-child > a { margin-right: 0; }
+    .nav-left .nav-links .nav-dropdown:last-child > a {
+      margin-right: 0;
+    }
     .nav-left .nav-links > a:hover,
     .nav-left .nav-links .nav-dropdown > a:hover { color: var(--gold-primary); }
     .nav-left .nav-links > a.active,
@@ -99,25 +112,112 @@
     .nav-dropdown { position: relative; display: inline-block; }
     .nav-dropdown > a i { font-size: 0.6rem; transition: transform 0.3s ease; }
     .nav-dropdown:hover > a i { transform: rotate(180deg); }
-    .dropdown-menu { position: absolute; top: 100%; left: -1rem; min-width: 220px; background: var(--card-dark); border: 1px solid rgba(207, 171, 85, 0.35); border-radius: 12px; padding: 0.6rem 0; margin-top: 0.8rem; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6); z-index: 200; }
-    .dropdown-menu::before { content: ''; position: absolute; top: -6px; left: 2rem; width: 12px; height: 12px; background: var(--card-dark); border-left: 1px solid rgba(207, 171, 85, 0.35); border-top: 1px solid rgba(207, 171, 85, 0.35); transform: rotate(45deg); }
-    .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-    .dropdown-menu a { display: flex; align-items: center; gap: 0.7rem; padding: 0.65rem 1.3rem; color: var(--text-muted); text-decoration: none; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; transition: all 0.25s ease; cursor: pointer; font-family: 'Montserrat', sans-serif; margin: 0; white-space: nowrap; }
-    .dropdown-menu a i { font-size: 0.75rem; color: var(--gold-primary); width: 16px; text-align: center; }
-    .dropdown-menu a:hover { color: var(--gold-light); background: rgba(207, 171, 85, 0.08); padding-left: 1.6rem; }
 
-    .brand-logo { font-size: 1.85rem; font-weight: 700; color: var(--gold-light); text-decoration: none; text-transform: uppercase; letter-spacing: 0.22em; position: absolute; left: 50%; transform: translateX(-50%); cursor: pointer; white-space: nowrap; }
-    .nav-right { display: flex; gap: 1.4rem; align-items: center; flex-shrink: 0; max-width: 15%; justify-content: flex-end; }
-    .nav-right a { color: var(--text-muted); font-size: 1.05rem; cursor: pointer; transition: color 0.3s, transform 0.3s; text-decoration: none; display: flex; align-items: center; justify-content: center; min-width: 40px; min-height: 40px; }
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: -1rem;
+      min-width: 220px;
+      background: var(--card-dark);
+      border: 1px solid rgba(207, 171, 85, 0.35);
+      border-radius: 12px;
+      padding: 0.6rem 0;
+      margin-top: 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transform-origin: top left;
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+      z-index: 9999;
+      pointer-events: none;
+    }
+    .dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 2rem;
+      width: 12px;
+      height: 12px;
+      background: var(--card-dark);
+      border-left: 1px solid rgba(207, 171, 85, 0.35);
+      border-top: 1px solid rgba(207, 171, 85, 0.35);
+      transform: rotate(45deg);
+    }
+    .nav-dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .dropdown-menu a {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.65rem 1.3rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      white-space: nowrap;
+    }
+    .dropdown-menu a i { font-size: 0.75rem; color: var(--gold-primary); width: 16px; text-align: center; }
+    .dropdown-menu a:hover {
+      color: var(--gold-light);
+      background: rgba(207, 171, 85, 0.08);
+      padding-left: 1.6rem;
+    }
+
+    .brand-logo {
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .nav-right {
+      display: flex;
+      gap: 1.4rem;
+      align-items: center;
+      flex-shrink: 0;
+      max-width: 15%;
+      justify-content: flex-end;
+    }
+    .nav-right a {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      cursor: pointer;
+      transition: color 0.3s, transform 0.3s;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 40px;
+      min-height: 40px;
+    }
     .nav-right a:hover { color: var(--gold-primary); transform: translateY(-2px); }
 
+    /* ---------------- HAMBURGER MENU ---------------- */
     .hamburger { display: none; flex-direction: column; justify-content: space-between; width: 26px; height: 18px; cursor: pointer; z-index: 200; flex-shrink: 0; }
     .hamburger span { display: block; height: 2px; width: 100%; background-color: var(--gold-light); border-radius: 2px; transition: all 0.3s ease; transform-origin: center; }
     .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-    .mobile-menu { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; height: 100dvh; background: rgba(13, 14, 17, 0.98); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 150; flex-direction: column; justify-content: center; align-items: center; gap: 1.4rem; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 4rem 1rem 2rem; }
+    /* ---------------- MOBILE MENU OVERLAY ---------------- */
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; height: 100dvh; background: rgba(13, 14, 17, 0.98); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 150; flex-direction: column; justify-content: center; align-items: center; gap: 1.4rem; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 5rem 1rem 2rem; }
     .mobile-menu.active { display: flex; opacity: 1; pointer-events: all; }
     .mobile-menu-close { position: absolute; top: 24px; right: 28px; width: 46px; height: 46px; border-radius: 50%; border: 1px solid rgba(207, 171, 85, 0.5); background: rgba(25, 27, 32, 0.7); color: var(--gold-light); font-size: 1.6rem; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; z-index: 200; }
     .mobile-menu-close:hover { background: var(--gold-primary); color: #0b0c0e; border-color: var(--gold-primary); transform: rotate(90deg); }
@@ -131,68 +231,123 @@
     .mobile-dropdown-menu { display: none; flex-direction: column; align-items: center; gap: 0.9rem; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid rgba(207, 171, 85, 0.2); border-bottom: 1px solid rgba(207, 171, 85, 0.2); width: 90%; max-width: 320px; }
     .mobile-dropdown.open .mobile-dropdown-menu { display: flex; }
     .mobile-dropdown-menu a { color: var(--text-muted); text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.3s; cursor: pointer; display: flex; align-items: center; gap: 0.6rem; padding: 0.5rem 1rem; }
-    .mobile-dropdown-menu a:hover { color: var(--gold-primary); }
+    .mobile-dropdown-menu a:hover, .mobile-dropdown-menu a.active { color: var(--gold-primary); }
     .mobile-dropdown-menu a i { font-size: 0.7rem; color: var(--gold-primary); width: 16px; text-align: center; }
 
-    /* PAGE HERO */
-    .page-hero { position: relative; min-height: 45vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; background-image: linear-gradient(180deg, rgba(13, 14, 17, 0.85) 0%, rgba(13, 14, 17, 0.95) 100%), url('orexon-images/services-hero.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; transition: background-image 0.4s ease; }
+    /* ============================================================
+       PAGE HERO
+       ============================================================ */
+    .page-hero { position: relative; min-height: 45vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; background-image: linear-gradient(180deg, rgba(13, 14, 17, 0.85) 0%, rgba(13, 14, 17, 0.95) 100%), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1600&auto=format&fit=crop'); background-size: cover; background-position: center; background-repeat: no-repeat; transition: background-image 0.4s ease; }
     .page-hero-content { position: relative; z-index: 3; max-width: 800px; width: 100%; }
     .page-hero-eyebrow { display: inline-flex; align-items: center; gap: 0.8rem; font-size: 0.68rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold-primary); margin-bottom: 1.5rem; font-weight: 500; }
     .page-hero-eyebrow::before, .page-hero-eyebrow::after { content: ''; width: 40px; height: 1px; background: var(--gold-primary); opacity: 0.7; }
     .page-hero h1 { font-size: 3.8rem; line-height: 1.1; color: var(--text-light); margin-bottom: 1.2rem; font-weight: 600; }
     .page-hero h1 em { font-style: italic; color: var(--gold-light); font-weight: 400; }
-    .page-hero p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.85; max-width: 600px; margin: 0 auto; }
+    .page-hero p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.85; max-width: 620px; margin: 0 auto; }
 
-    /* CONTAINER */
+    /* ============================================================
+       CONTAINER
+       ============================================================ */
     .container { max-width: 1200px; margin: 0 auto; width: 100%; }
     .section-title { text-align: center; font-size: 2.5rem; margin: 0 0 0.8rem; color: var(--gold-light); }
     .section-sub { text-align: center; font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 3rem; }
 
-    /* SERVICES SECTION */
-    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; margin-top: 1rem; }
+    /* ============================================================
+       INTRO / STORY SECTION — Logo container now 1:1 with contain
+       ============================================================ */
+    .story-section { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; padding: 4.5rem 1.5rem; }
+    .story-img-wrap {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(207, 171, 85, 0.25);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      background: var(--card-dark);   /* fills empty space around contain */
+    }
+    .story-img-wrap img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;            /* crop aagaadhu — full logo visible */
+      aspect-ratio: 1 / 1;            /* 1:1 square */
+      padding: 2.5rem;                /* breathing space around logo */
+      transition: transform 0.7s ease;
+    }
+    .story-img-wrap:hover img { transform: scale(1.03); }
+    .story-img-wrap::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, rgba(13, 14, 17, 0.25) 100%); pointer-events: none; }
+    .story-eyebrow { display: inline-flex; align-items: center; gap: 0.8rem; font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-primary); margin-bottom: 1.2rem; font-weight: 500; }
+    .story-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--gold-primary); opacity: 0.7; }
+    .story-content h2 { font-size: 2.4rem; color: var(--gold-light); margin-bottom: 1.4rem; line-height: 1.2; font-weight: 600; }
+    .story-content h2 em { font-style: italic; color: var(--gold-primary); font-weight: 400; }
+    .story-content p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 1.2rem; }
+    .story-content p:last-child { margin-bottom: 0; }
 
-    .service-card { background: var(--card-dark); border: 1px solid rgba(207, 171, 85, 0.15); border-radius: 16px; overflow: hidden; transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; display: flex; flex-direction: column; cursor: pointer; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25); min-height: 280px; padding: 2.8rem 2.4rem; justify-content: center; position: relative; }
-    .service-card::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold-primary), transparent); transition: width 0.5s ease; }
-    .service-card:hover::before { width: 80%; }
-    .service-card:hover { transform: translateY(-6px); border-color: rgba(207, 171, 85, 0.6); box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 25px rgba(207, 171, 85, 0.06); }
+    /* ============================================================
+       VALUES GRID
+       ============================================================ */
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 1rem; }
+    .value-card { background: var(--card-dark); border: 1px solid rgba(207, 171, 85, 0.15); border-radius: 16px; padding: 2.4rem 2rem; text-align: center; transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25); position: relative; overflow: hidden; }
+    .value-card::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold-primary), transparent); transition: width 0.5s ease; }
+    .value-card:hover::before { width: 80%; }
+    .value-card:hover { transform: translateY(-8px); border-color: rgba(207, 171, 85, 0.5); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(207, 171, 85, 0.06); }
+    .value-icon { width: 68px; height: 68px; border-radius: 50%; border: 1px solid rgba(207, 171, 85, 0.4); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.4rem; font-size: 1.5rem; color: var(--gold-primary); transition: all 0.4s ease; background: rgba(207, 171, 85, 0.05); }
+    .value-card:hover .value-icon { background: var(--gold-primary); color: #0b0c0e; border-color: var(--gold-primary); transform: rotateY(180deg); }
+    .value-card h3 { font-size: 1.15rem; color: var(--gold-light); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.7rem; font-weight: 600; }
+    .value-card p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.75; max-width: 280px; margin: 0 auto; }
 
-    .service-icon { width: 68px; height: 68px; border-radius: 50%; border: 1px solid rgba(207, 171, 85, 0.4); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--gold-primary); background: rgba(207, 171, 85, 0.05); margin-bottom: 1.4rem; transition: all 0.4s ease; }
-    .service-card:hover .service-icon { background: var(--gold-primary); color: #0b0c0e; border-color: var(--gold-primary); transform: rotateY(180deg); }
+    /* ============================================================
+       OWNER / FOUNDER SECTION
+       ============================================================ */
+    .owner-section { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: center; padding: 0 1.5rem 4.5rem; }
+    .owner-card { position: relative; background: var(--card-dark); border: 1px solid rgba(207, 171, 85, 0.25); border-radius: 20px; padding: 3rem 2.5rem; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4); text-align: center; overflow: hidden; }
+    .owner-card::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 60%; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-primary), transparent); opacity: 0.6; }
+    .owner-avatar { width: 120px; height: 120px; border-radius: 50%; border: 2px solid var(--gold-primary); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 700; color: var(--gold-light); background: linear-gradient(135deg, rgba(207, 171, 85, 0.2), rgba(207, 171, 85, 0.05)); letter-spacing: 0.05em; }
+    .owner-card h3 { font-size: 1.8rem; color: var(--gold-light); margin-bottom: 0.4rem; font-weight: 600; }
+    .owner-card .owner-role { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-primary); font-weight: 500; margin-bottom: 1.5rem; display: block; }
+    .owner-card .owner-divider { width: 50px; height: 1px; background: var(--gold-primary); opacity: 0.4; margin: 0 auto 1.5rem; }
+    .owner-card .owner-contact { display: flex; flex-direction: column; gap: 0.6rem; align-items: center; }
+    .owner-card .owner-contact a { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 0.6rem; transition: color 0.3s; }
+    .owner-card .owner-contact a i { color: var(--gold-primary); }
+    .owner-card .owner-contact a:hover { color: var(--gold-primary); }
+    .owner-content h2 { font-size: 2.4rem; color: var(--gold-light); margin-bottom: 1.4rem; line-height: 1.2; font-weight: 600; }
+    .owner-content h2 em { font-style: italic; color: var(--gold-primary); font-weight: 400; }
+    .owner-content p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 1.2rem; }
+    .owner-content p:last-child { margin-bottom: 0; }
+    .owner-content blockquote { border-left: 2px solid var(--gold-primary); padding: 1rem 0 1rem 1.5rem; margin: 1.8rem 0; font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--gold-light); line-height: 1.6; }
 
-    .service-body { padding: 0; display: flex; flex-direction: column; justify-content: center; flex-grow: 1; }
-    .service-body h3 { font-size: 1.35rem; color: var(--gold-light); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.7rem; font-weight: 600; line-height: 1.2; }
-    .service-body p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem; max-width: 90%; }
-    .service-body .btn-service { display: inline-flex; align-items: center; gap: 0.5rem; align-self: flex-start; background: transparent; border: 1px solid var(--gold-primary); color: var(--gold-primary); padding: 0.7rem 1.6rem; border-radius: 50px; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; transition: all 0.35s ease; cursor: pointer; font-family: 'Montserrat', sans-serif; min-height: 40px; }
-    .service-body .btn-service i { transition: transform 0.35s ease; font-size: 0.7rem; }
-    .service-body .btn-service:hover { background: var(--gold-primary); color: #0b0c0e; gap: 0.9rem; }
-    .service-body .btn-service:hover i { transform: translateX(3px); }
+    /* ============================================================
+       STATS SECTION
+       ============================================================ */
+    .stats-section { background: linear-gradient(135deg, rgba(207, 171, 85, 0.06) 0%, rgba(25, 27, 32, 0.5) 100%); border: 1px solid rgba(207, 171, 85, 0.2); border-radius: 20px; padding: 3rem 2.5rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; max-width: 1000px; margin: 0 auto; transition: background 0.4s ease; }
+    .stat-item { text-align: center; position: relative; }
+    .stat-item:not(:last-child)::after { content: ''; position: absolute; right: -1rem; top: 20%; height: 60%; width: 1px; background: linear-gradient(180deg, transparent, rgba(207, 171, 85, 0.3), transparent); }
+    .stat-item h3 { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: var(--gold-light); line-height: 1; margin-bottom: 0.6rem; font-weight: 700; }
+    .stat-item span { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); }
 
-    /* PROCESS SECTION */
-    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 1rem; }
-    .process-step { background: var(--card-dark); border: 1px solid rgba(207, 171, 85, 0.15); border-radius: 16px; padding: 2.2rem 1.8rem; text-align: center; transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25); position: relative; }
-    .process-step:hover { transform: translateY(-8px); border-color: rgba(207, 171, 85, 0.5); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(207, 171, 85, 0.06); }
-    .process-number { width: 52px; height: 52px; border-radius: 50%; border: 1px solid var(--gold-primary); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; font-size: 1.2rem; font-weight: 700; color: var(--gold-primary); font-family: 'Cormorant Garamond', serif; background: rgba(207, 171, 85, 0.05); }
-    .process-step h3 { font-size: 1.1rem; color: var(--gold-light); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.6rem; font-weight: 600; }
-    .process-step p { font-size: 0.73rem; color: var(--text-muted); line-height: 1.7; }
-
-    /* CTA SECTION */
+    /* ============================================================
+       CTA SECTION
+       ============================================================ */
     .cta-box { background: linear-gradient(135deg, rgba(207, 171, 85, 0.12) 0%, rgba(25, 27, 32, 0.9) 100%); border: 1px solid rgba(207, 171, 85, 0.35); border-radius: 20px; padding: 3.5rem 2.5rem; text-align: center; max-width: 800px; margin: 0 auto; transition: background 0.4s ease; }
     .cta-box h2 { font-size: 2.2rem; color: var(--gold-light); margin-bottom: 0.8rem; font-weight: 600; }
     .cta-box p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
     .btn-gold { display: inline-block; background: var(--gold-primary); color: #0b0c0e; padding: 0.8rem 2.2rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; transition: all 0.3s ease; border: 1px solid var(--gold-primary); cursor: pointer; font-family: 'Montserrat', sans-serif; min-height: 44px; }
     .btn-gold:hover { background: transparent; color: var(--gold-primary); }
 
-    /* FOOTER */
+    /* ============================================================
+       FOOTER
+       ============================================================ */
     .site-footer { background: #08080a; border-top: 1px solid rgba(207, 171, 85, 0.25); padding: 4.5rem 0 0; position: relative; overflow: hidden; transition: background 0.4s ease; }
     .site-footer::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 400px; max-width: 90%; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-primary), transparent); opacity: 0.6; }
     .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 3rem; margin-bottom: 3.5rem; }
     .footer-brand-col h3 { font-size: 1.6rem; color: var(--gold-light); letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 1.2rem; }
     .footer-brand-col p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.6rem; max-width: 320px; }
-
+    .footer-contact-info { margin-bottom: 1.6rem; }
+    .footer-contact-info a { display: inline-flex; align-items: center; gap: 0.6rem; color: var(--text-muted); text-decoration: none; font-size: 0.78rem; transition: color 0.3s; margin-bottom: 0.5rem; }
+    .footer-contact-info a i { color: var(--gold-primary); font-size: 0.85rem; }
+    .footer-contact-info a:hover { color: var(--gold-primary); }
     .footer-socials { display: flex; gap: 0.9rem; flex-wrap: wrap; }
     .footer-socials a { width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(207, 171, 85, 0.3); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 1rem; transition: all 0.3s ease; text-decoration: none; background: rgba(207, 171, 85, 0.03); }
     .footer-socials a:hover { background: var(--gold-primary); color: #0b0c0e; border-color: var(--gold-primary); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(207, 171, 85, 0.2); }
-
     .footer-col h4 { font-size: 0.95rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1.4rem; font-family: 'Montserrat', sans-serif; font-weight: 500; }
     .footer-col ul { list-style: none; }
     .footer-col ul li { margin-bottom: 0.6rem; }
@@ -200,13 +355,11 @@
     .footer-col ul li a:hover { color: var(--gold-primary); padding-left: 5px; }
     .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.06); padding: 1.8rem 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
     .footer-bottom p { font-size: 0.68rem; color: var(--surface-gray); letter-spacing: 0.08em; }
-    .footer-bottom-links { display: flex; gap: 2rem; flex-wrap: wrap; }
-    .footer-bottom-links a { font-size: 0.68rem; color: var(--surface-gray); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s; cursor: pointer; padding: 0.4rem 0; display: inline-block; }
-    .footer-bottom-links a:hover { color: var(--gold-primary); }
 
-    /* FLOATING BUTTONS */
-    .back-to-top,
-    .whatsapp-float {
+    /* ============================================================
+       FLOATING BUTTONS
+       ============================================================ */
+    .back-to-top, .whatsapp-float {
       position: fixed;
       right: 20px;
       border-radius: 50%;
@@ -222,11 +375,12 @@
     .back-to-top { bottom: 85px; width: 46px; height: 46px; background: var(--gold-primary); color: #0b0c0e; border: 1px solid var(--gold-primary); font-size: 1rem; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45); opacity: 0; pointer-events: none; }
     .back-to-top.show { opacity: 1; pointer-events: all; }
     .back-to-top:hover { background: transparent; color: var(--gold-primary); transform: translateY(-3px); }
-
     .whatsapp-float { bottom: 20px; width: 52px; height: 52px; background: var(--whatsapp-green); color: #ffffff; font-size: 1.55rem; box-shadow: 0 8px 22px rgba(37, 211, 102, 0.45); z-index: 89; }
     .whatsapp-float:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(37, 211, 102, 0.6); }
 
-    /* MODAL */
+    /* ============================================================
+       MODAL
+       ============================================================ */
     .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; height: 100dvh; background: rgba(8, 8, 10, 0.9); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 300; justify-content: center; align-items: center; padding: 1.5rem; opacity: 0; transition: opacity 0.3s ease; overflow-y: auto; }
     .modal-overlay.active { display: flex; opacity: 1; }
     .modal-content { background: var(--card-dark); border: 1px solid rgba(207, 171, 85, 0.4); border-radius: 16px; padding: 2.8rem 2.4rem; max-width: 520px; width: 100%; position: relative; box-shadow: 0 30px 60px rgba(0,0,0,0.7); transform: translateY(20px); transition: transform 0.4s ease; max-height: 90vh; overflow-y: auto; -webkit-overflow-scrolling: touch; }
@@ -248,42 +402,42 @@
     .modal-success .check { width: 60px; height: 60px; border-radius: 50%; border: 1px solid var(--gold-primary); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; font-size: 1.6rem; color: var(--gold-primary); }
     .modal-success p { color: var(--text-muted); font-size: 0.85rem; }
 
-    /* LIGHT THEME FIXES */
+    /* ============================================================
+       LIGHT THEME FIXES
+       ============================================================ */
     [data-theme="light"] header { border-bottom: 1px solid rgba(0, 0, 0, 0.08); }
     [data-theme="light"] .site-footer { background: #ece8e0; }
     [data-theme="light"] .mobile-menu { background: rgba(247, 245, 240, 0.98); }
     [data-theme="light"] .mobile-menu-close { background: rgba(255, 255, 255, 0.7); }
     [data-theme="light"] .modal-overlay { background: rgba(247, 245, 240, 0.85); }
-    [data-theme="light"] .page-hero { background-image: linear-gradient(180deg, rgba(247, 245, 240, 0.85) 0%, rgba(247, 245, 240, 0.95) 100%), url('orexon-images/services-hero.webp'); }
+    [data-theme="light"] .page-hero { background-image: linear-gradient(180deg, rgba(247, 245, 240, 0.85) 0%, rgba(247, 245, 240, 0.95) 100%), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1600&auto=format&fit=crop'); }
     [data-theme="light"] .cta-box { background: linear-gradient(135deg, rgba(207, 171, 85, 0.15) 0%, rgba(255, 255, 255, 0.7) 100%); }
+    [data-theme="light"] .stats-section { background: linear-gradient(135deg, rgba(207, 171, 85, 0.12) 0%, rgba(255, 255, 255, 0.6) 100%); }
     [data-theme="light"] .modal-form input,
     [data-theme="light"] .modal-form textarea,
     [data-theme="light"] .modal-form select { background: #ffffff; }
     [data-theme="light"] .modal-form select option { background: #ffffff; }
-    [data-theme="light"] .footer-bottom p,
-    [data-theme="light"] .footer-bottom-links a { color: #8a8a8f; }
+    [data-theme="light"] .footer-bottom p { color: #8a8a8f; }
+    [data-theme="light"] .story-img-wrap { background: #f0ece4; }
 
     /* ============================================================
-       RESPONSIVE — GRADUATED NAV BREAKPOINTS
-       Hamburger now activates at 1200px so 14" laptops
-       (effective widths ~1100–1300px) get the mobile menu
-       instead of an overlapping nav bar.
+       RESPONSIVE
        ============================================================ */
     @media (min-width: 640px) {
       .container { padding-left: 2.5rem; padding-right: 2.5rem; }
       .page-hero { padding: 5rem 2.5rem; }
     }
-
     @media (min-width: 968px) {
       .container { padding-left: 4rem; padding-right: 4rem; }
-      .page-hero { padding: 6rem 4rem; }
+      .page-hero { padding: 5.5rem 4rem; }
     }
 
     @media (max-width: 1200px) {
       .page-hero h1 { font-size: 3.2rem; }
+      .story-section { gap: 3rem; }
+      .owner-section { gap: 3rem; }
     }
 
-    /* ---------- MEDIUM LAPTOP (1200px - 1399px) ---------- */
     @media (max-width: 1399px) {
       header { padding: 1.3rem 3rem; }
       .nav-left { gap: 1.5rem; }
@@ -296,46 +450,50 @@
       .brand-logo { font-size: 1.7rem; letter-spacing: 0.2em; }
     }
 
-    /* ============================================================
-       BELOW 1200px — SHOW HAMBURGER
-       (Covers 14" laptops, tablets, and phones)
-       ============================================================ */
     @media (max-width: 1200px) {
       header { padding: 1.2rem 1.5rem; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
-      .page-hero h1 { font-size: 2.6rem; }
-      .services-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .process-grid { grid-template-columns: repeat(2, 1fr); gap: 1.8rem; }
       .nav-left .nav-links { display: none; }
       .nav-left { max-width: none; overflow: visible; gap: 0; }
       .nav-right { max-width: none; }
       .hamburger { display: flex; }
       .brand-logo { font-size: 1.4rem; letter-spacing: 0.18em; }
+      .page-hero h1 { font-size: 2.6rem; }
+
+      .story-section { grid-template-columns: 1fr; gap: 2.5rem; padding: 3.5rem 1.5rem; }
+      .story-img-wrap { max-width: 500px; margin: 0 auto; }
+      .owner-section { grid-template-columns: 1fr; gap: 2.5rem; }
+      .stats-section { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+      .stat-item:nth-child(2)::after { display: none; }
     }
 
-    /* Guard rail: only hide hamburger above 1200px */
     @media (min-width: 1201px) { .hamburger { display: none; } }
 
     @media (max-width: 640px) {
       header { padding: 1rem 1.2rem; }
       .footer-grid { grid-template-columns: 1fr; gap: 2.2rem; }
       .footer-bottom { flex-direction: column; text-align: center; gap: 1.2rem; }
-      .footer-bottom-links { justify-content: center; gap: 1.2rem; }
-
       .page-hero { min-height: 35vh; padding: 3.5rem 1.5rem; }
-      .page-hero h1 { font-size: 2.3rem; }
+      .page-hero h1 { font-size: 2.2rem; }
       .page-hero p { font-size: 0.85rem; }
 
       .section-title { font-size: 2rem; }
       .section-sub { margin-bottom: 2.2rem; }
 
-      .services-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .service-card { padding: 2rem 1.6rem; min-height: auto; }
-      .service-body h3 { font-size: 1.15rem; }
-      .service-body p { max-width: 100%; font-size: 0.78rem; }
+      .story-content h2 { font-size: 1.9rem; }
+      .owner-content h2 { font-size: 1.9rem; }
+      .owner-card { padding: 2.2rem 1.8rem; }
+      .owner-avatar { width: 100px; height: 100px; font-size: 2.5rem; }
 
-      .process-grid { grid-template-columns: 1fr; gap: 1.8rem; }
-      .process-step { padding: 1.8rem 1.5rem; }
+      .story-img-wrap img { padding: 1.8rem; }
+
+      .values-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .value-card { padding: 2rem 1.6rem; }
+
+      .stats-section { grid-template-columns: 1fr 1fr; padding: 2.2rem 1.5rem; gap: 1.5rem; }
+      .stat-item:nth-child(2)::after { display: none; }
+      .stat-item h3 { font-size: 2.2rem; }
+
       .cta-box { padding: 2.5rem 1.5rem; }
       .cta-box h2 { font-size: 1.7rem; }
     }
@@ -353,56 +511,36 @@
       .mobile-menu-close { top: 18px; right: 18px; width: 40px; height: 40px; font-size: 1.4rem; }
 
       .section-title { font-size: 1.8rem; }
-      .section-sub { font-size: 0.65rem; margin-bottom: 2rem; }
-      .page-hero { padding: 3rem 1.25rem; min-height: 32vh; }
       .page-hero h1 { font-size: 1.9rem; }
-      .page-hero p { font-size: 0.8rem; }
-      .page-hero-eyebrow { font-size: 0.6rem; letter-spacing: 0.24em; }
 
-      .service-card { padding: 1.8rem 1.4rem; }
-      .service-icon { width: 56px; height: 56px; font-size: 1.3rem; }
-      .service-body h3 { font-size: 1.05rem; }
-      .service-body p { font-size: 0.75rem; }
+      .story-content h2,
+      .owner-content h2 { font-size: 1.6rem; }
+      .owner-content blockquote { font-size: 1.05rem; padding-left: 1.2rem; }
 
-      .process-step { padding: 1.6rem 1.2rem; }
-      .process-number { width: 46px; height: 46px; font-size: 1.05rem; }
-      .process-step h3 { font-size: 1rem; }
-      .process-step p { font-size: 0.7rem; }
+      .story-img-wrap img { padding: 1.4rem; }
 
-      .cta-box { padding: 2rem 1.25rem; }
-      .cta-box h2 { font-size: 1.5rem; }
-      .cta-box p { font-size: 0.8rem; }
+      .value-card h3 { font-size: 1.05rem; }
+      .value-card p { font-size: 0.74rem; }
+
+      .stat-item h3 { font-size: 1.9rem; }
+      .stat-item span { font-size: 0.58rem; }
+
       .footer-socials a { width: 42px; height: 42px; font-size: 0.95rem; }
+
+      .back-to-top { bottom: 70px; width: 38px; height: 38px; font-size: 0.8rem; right: 12px; }
+      .whatsapp-float { bottom: 12px; width: 44px; height: 44px; font-size: 1.3rem; right: 12px; }
     }
 
-    /* FLOATING BUTTONS — RESPONSIVE */
-    @media (max-width: 968px) {
-      .back-to-top,
-      .whatsapp-float { right: 16px; }
-      .back-to-top { bottom: 78px; width: 42px; height: 42px; font-size: 0.9rem; }
-      .whatsapp-float { bottom: 16px; width: 50px; height: 50px; font-size: 1.45rem; }
-    }
-    @media (max-width: 640px) {
-      .back-to-top,
-      .whatsapp-float { right: 15px; }
-      .back-to-top { bottom: 76px; width: 40px; height: 40px; font-size: 0.85rem; }
-      .whatsapp-float { bottom: 15px; width: 48px; height: 48px; font-size: 1.4rem; }
-    }
-    @media (max-width: 480px) {
-      .back-to-top,
-      .whatsapp-float { right: 12px; }
-      .back-to-top { bottom: 70px; width: 38px; height: 38px; font-size: 0.8rem; }
-      .whatsapp-float { bottom: 12px; width: 44px; height: 44px; font-size: 1.3rem; }
-    }
     @media (max-width: 360px) {
-      .back-to-top,
-      .whatsapp-float { right: 10px; }
-      .back-to-top { bottom: 66px; width: 36px; height: 36px; font-size: 0.75rem; }
-      .whatsapp-float { bottom: 10px; width: 42px; height: 42px; font-size: 1.25rem; }
+      .page-hero h1 { font-size: 1.7rem; }
+      .section-title { font-size: 1.5rem; }
+      .stats-section { grid-template-columns: 1fr; }
+      .stat-item::after { display: none; }
+      .footer-socials a { width: 40px; height: 40px; font-size: 0.9rem; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .service-card, .process-step { transition: none; }
+      .value-card, .story-img-wrap img { transition: none; }
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
@@ -413,7 +551,7 @@
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- NAVIGATION -->
   <header>
     <div class="nav-left">
       <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
@@ -421,7 +559,8 @@
       </div>
       <nav class="nav-links">
         <a href="index.html#solutions">Categories</a>
-        <a href="about.html">About Us</a>
+        <a href="about.html" class="active">About Us</a>
+
         <div class="nav-dropdown">
           <a href="products.html">Products <i class="fa-solid fa-chevron-down"></i></a>
           <div class="dropdown-menu">
@@ -436,7 +575,8 @@
             <a href="products.html?category=hair-dryer"><i class="fa-solid fa-wind"></i> Hair Dryers</a>
           </div>
         </div>
-        <a href="services.html" class="active">Services</a>
+
+        <a href="services.html">Services</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
@@ -450,7 +590,7 @@
     </div>
   </header>
 
-  <!-- Mobile Menu -->
+  <!-- MOBILE MENU -->
   <nav class="mobile-menu" id="mobileMenu">
     <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
       <i class="fa-solid fa-xmark"></i>
@@ -481,106 +621,108 @@
   <!-- PAGE HERO -->
   <section class="page-hero" style="padding: 4.5rem 1.5rem;">
     <div class="page-hero-content">
-      <span class="page-hero-eyebrow">What We Offer</span>
-      <h1>Services & <em>Solutions</em></h1>
-      <p>End-to-end hospitality support across India — from bulk order management and tailored specifications to prompt delivery and after-sales care.</p>
+      <span class="page-hero-eyebrow">Our Story</span>
+      <h1>About <em>Orexon Luxe</em></h1>
+      <p>Redefining luxury hospitality solutions across India — one distinguished property at a time.</p>
     </div>
   </section>
 
-  <!-- SERVICES SECTION -->
-  <section class="container services-section" style="padding: 4.5rem 1.5rem;">
-    <h2 class="section-title">Our Core Services</h2>
-    <p class="section-sub">Comprehensive Support for Distinguished Properties</p>
-
-    <div class="services-grid">
-
-      <div class="service-card" data-inquiry="Bulk Order Management">
-        <div class="service-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
-        <div class="service-body">
-          <h3>Bulk Order Management</h3>
-          <p>Streamlined procurement for hotels, resorts, and commercial properties — with competitive B2B pricing and MOQ flexibility.</p>
-          <button class="btn-service" data-inquiry="Bulk Order Management">
-            Learn More <i class="fa-solid fa-arrow-right"></i>
-          </button>
-        </div>
+  <!-- STORY SECTION -->
+  <section class="container">
+    <div class="story-section">
+      <div class="story-img-wrap">
+        <img src="orexonluxe-nobg/logo.webp" alt="OREXON LUXE — Premium hospitality supplies" loading="lazy" />
       </div>
 
-      <div class="service-card" data-inquiry="Tailored Specifications">
-        <div class="service-icon"><i class="fa-solid fa-sliders"></i></div>
-        <div class="service-body">
-          <h3>Tailored Specifications</h3>
-          <p>Custom sizing, finishes, and configurations to match your property's branding and design language.</p>
-          <button class="btn-service" data-inquiry="Tailored Specifications">
-            Learn More <i class="fa-solid fa-arrow-right"></i>
-          </button>
-        </div>
+      <div class="story-content">
+        <span class="story-eyebrow">Who We Are</span>
+        <h2>Elevating Hospitality<br>Through <em>Refined Detail</em></h2>
+        <p>OREXON LUXE was established with a clear vision — to bring world-class hospitality supplies to India's most distinguished hotels, resorts, and commercial properties. Based in Aligarh, Uttar Pradesh, we serve clients nationwide with a curated collection of premium amenities designed to impress the most discerning guests.</p>
+        <p>Every product in our range is selected for its craftsmanship, functionality, and ability to enhance the guest experience. From ultra-quiet hand dryers to fully integrated smart toilets, each item reflects our commitment to quality without compromise.</p>
+        <p>As a verified supplier with GST and UDYAM registration, we combine product excellence with professional service — ensuring every B2B partnership we build is founded on trust, reliability, and long-term value.</p>
       </div>
-
-      <div class="service-card" data-inquiry="Pan-India Delivery">
-        <div class="service-icon"><i class="fa-solid fa-truck-fast"></i></div>
-        <div class="service-body">
-          <h3>Pan-India Delivery</h3>
-          <p>Prompt, reliable delivery across India from our Aligarh base, with order tracking and dedicated account management.</p>
-          <button class="btn-service" data-inquiry="Pan-India Delivery">
-            Learn More <i class="fa-solid fa-arrow-right"></i>
-          </button>
-        </div>
-      </div>
-
-      <div class="service-card" data-inquiry="After-Sales Support">
-        <div class="service-icon"><i class="fa-solid fa-headset"></i></div>
-        <div class="service-body">
-          <h3>After-Sales Support</h3>
-          <p>Warranty assistance, replacement parts, and responsive customer care to keep your amenities in pristine condition.</p>
-          <button class="btn-service" data-inquiry="After-Sales Support">
-            Learn More <i class="fa-solid fa-arrow-right"></i>
-          </button>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- PROCESS SECTION -->
-  <section class="container process-section" style="padding: 0 1.5rem 4.5rem;">
-    <h2 class="section-title">How We Work</h2>
-    <p class="section-sub">A Seamless Four-Step Journey</p>
+  <!-- VALUES SECTION -->
+  <section class="container" style="padding: 0 1.5rem 4.5rem;">
+    <h2 class="section-title">Our Values</h2>
+    <p class="section-sub">The Principles Behind Every Partnership</p>
 
-    <div class="process-grid">
-
-      <div class="process-step">
-        <div class="process-number">01</div>
-        <h3>Consultation</h3>
-        <p>We begin by understanding your property's requirements, volume, and brand identity through a dedicated consultation.</p>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon"><i class="fa-solid fa-gem"></i></div>
+        <h3>Quality First</h3>
+        <p>Every product we supply is chosen for its exceptional craftsmanship, durability, and performance under real hospitality conditions.</p>
       </div>
 
-      <div class="process-step">
-        <div class="process-number">02</div>
-        <h3>Specification</h3>
-        <p>Our team prepares a tailored quote with product specifications, finishes, and pricing for your approval.</p>
+      <div class="value-card">
+        <div class="value-icon"><i class="fa-solid fa-handshake"></i></div>
+        <h3>Trusted Partnership</h3>
+        <p>We work closely with each client — from consultation to delivery and beyond — building relationships that last.</p>
       </div>
 
-      <div class="process-step">
-        <div class="process-number">03</div>
-        <h3>Order & Dispatch</h3>
-        <p>We process your order with quality checks and dispatch promptly from our Aligarh facility.</p>
+      <div class="value-card">
+        <div class="value-icon"><i class="fa-solid fa-star"></i></div>
+        <h3>Refined Experience</h3>
+        <p>Our products are designed to elevate the guest experience, reflecting the standards of the world's finest hotels.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OWNER / FOUNDER SECTION -->
+  <section class="container">
+    <div class="owner-section">
+      <div class="owner-card">
+        <h3>Shubham Chauhan</h3>
+        <span class="owner-role">Founder &amp; Owner</span>
+        <div class="owner-divider"></div>
+        <div class="owner-contact">
+          <a href="tel:+919762769608"><i class="fa-solid fa-phone"></i> +91 9762769608</a>
+          <a href="mailto:orexonluxe@gmail.com"><i class="fa-solid fa-envelope"></i> orexonluxe@gmail.com</a>
+          <a href="https://wa.me/919762769608" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        </div>
       </div>
 
-      <div class="process-step">
-        <div class="process-number">04</div>
-        <h3>Delivery & Support</h3>
-        <p>We deliver across India and provide ongoing after-sales assistance for lasting performance.</p>
+      <div class="owner-content">
+        <span class="story-eyebrow">Meet the Founder</span>
+        <h2>A Vision Rooted in <em>Hospitality Excellence</em></h2>
+        <p>Shubham Chauhan founded OREXON LUXE with a simple yet ambitious goal — to give Indian hospitality businesses access to the same premium quality amenities enjoyed by the world's leading hotels, without the complexity or cost of international sourcing.</p>
+        <p>With a deep understanding of the hospitality sector and an eye for refined detail, Shubham has built OREXON LUXE into a trusted name for hoteliers, resort operators, and commercial property owners across India.</p>
+        <blockquote>"Luxury is in the details. Every product we supply is chosen to make our clients' properties unforgettable."</blockquote>
+        <p>Under his leadership, OREXON LUXE continues to expand its catalogue, deepen its supplier network, and serve more distinguished properties nationwide — while remaining rooted in the personal, hands-on service that clients have come to expect.</p>
       </div>
+    </div>
+  </section>
 
+  <!-- STATS SECTION -->
+  <section class="container" style="padding: 0 1.5rem 4.5rem;">
+    <div class="stats-section">
+      <div class="stat-item">
+        <h3>15+</h3>
+        <span>Products Listed</span>
+      </div>
+      <div class="stat-item">
+        <h3>2+</h3>
+        <span>Years on IndiaMART</span>
+      </div>
+      <div class="stat-item">
+        <h3>5.0</h3>
+        <span>Client Rating</span>
+      </div>
+      <div class="stat-item">
+        <h3>100%</h3>
+        <span>GST Verified</span>
+      </div>
     </div>
   </section>
 
   <!-- CTA SECTION -->
-  <section class="container cta-section" style="padding: 0 1.5rem 4.5rem;">
+  <section class="container" style="padding: 0 1.5rem 4.5rem;">
     <div class="cta-box">
-      <h2>Ready to Elevate Your Property?</h2>
-      <p>Let our B2B team create a tailored solution that matches your hotel's unique needs and brand identity.</p>
-      <button class="btn-gold" data-inquiry="General Inquiry">Request a Consultation</button>
+      <h2>Let's Work Together</h2>
+      <p>Whether you're outfitting a boutique hotel or a large-scale resort, our B2B team is ready to help you create an unforgettable guest experience.</p>
+      <button class="btn-gold" data-inquiry="General Inquiry">Get in Touch</button>
     </div>
   </section>
 
@@ -588,10 +730,14 @@
   <footer class="site-footer">
     <div class="container" style="padding: 0 1.5rem;">
       <div class="footer-grid">
-
         <div class="footer-brand-col">
           <h3>OREXON LUXE</h3>
           <p>Established with a vision to redefine luxury hospitality solutions, Orexon Luxe is a trusted supplier of premium hotel and commercial amenities across India.</p>
+
+          <div class="footer-contact-info">
+            <a href="mailto:orexonluxe@gmail.com"><i class="fa-solid fa-envelope"></i> orexonluxe@gmail.com</a>
+            <a href="tel:+919762769608"><i class="fa-solid fa-phone"></i> +91 9762769608</a>
+          </div>
 
           <div class="footer-socials">
             <a href="https://instagram.com/orexonluxe" target="_blank" rel="noopener" aria-label="Instagram">
@@ -627,7 +773,6 @@
             <li><a href="policies.html#warranty">Warranty</a></li>
           </ul>
         </div>
-
       </div>
 
       <div class="footer-bottom">
@@ -640,9 +785,8 @@
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <!-- Floating WhatsApp Button -->
   <a class="whatsapp-float"
-     href="https://wa.me/919762769608?text=Hi%20OREXON%20LUXE%2C%20I%27d%20like%20to%20know%20more%20about%20your%20services."
+     href="https://wa.me/919762769608?text=Hi%20OREXON%20LUXE%2C%20I%27d%20like%20to%20know%20more%20about%20your%20company."
      target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
@@ -672,10 +816,6 @@
           <div>
             <label for="inqInterest">Interested In</label>
             <select id="inqInterest" name="interest">
-              <option value="Bulk Order Management">Bulk Order Management</option>
-              <option value="Tailored Specifications">Tailored Specifications</option>
-              <option value="Pan-India Delivery">Pan-India Delivery</option>
-              <option value="After-Sales Support">After-Sales Support</option>
               <option value="Hand Dryers">Electric Hand Dryers</option>
               <option value="Mini Fridges">Mini Fridges (50L)</option>
               <option value="Sensor Taps">Sensor Taps</option>
@@ -708,7 +848,7 @@
   </div>
 
   <script>
-    /* WHATSAPP NUMBER — OREXON LUXE */
+    /* WHATSAPP NUMBER */
     const WHATSAPP_NUMBER = '919762769608';
 
     /* THEME INIT */
@@ -721,35 +861,53 @@
       } catch (e) {}
     })();
 
-    /* HAMBURGER MENU */
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const mobileMenuClose = document.getElementById('mobileMenuClose');
+    /* ============================================================
+       DOM REFERENCES (declared FIRST so no TDZ errors)
+       ============================================================ */
+    const hamburger              = document.getElementById('hamburger');
+    const mobileMenu             = document.getElementById('mobileMenu');
+    const mobileMenuClose        = document.getElementById('mobileMenuClose');
+    const mobileProductsDropdown = document.getElementById('mobileProductsDropdown');
+    const mobileProductsToggle   = document.getElementById('mobileProductsToggle');
+    const backToTop              = document.getElementById('backToTop');
+    const modalOverlay           = document.getElementById('modalOverlay');
+    const modalClose             = document.getElementById('modalClose');
+    const modalFormWrap          = document.getElementById('modalFormWrap');
+    const modalSuccess           = document.getElementById('modalSuccess');
+    const modalTitle             = document.getElementById('modalTitle');
+    const modalSub               = document.getElementById('modalSub');
+    const inquiryForm            = document.getElementById('inquiryForm');
+    const successClose           = document.getElementById('successClose');
 
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      mobileMenu.classList.toggle('active');
-      document.body.classList.toggle('no-scroll');
-    });
-
-    hamburger.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        hamburger.click();
-      }
-    });
-
-    mobileMenuClose.addEventListener('click', () => closeMobileMenu());
-
+    /* ============================================================
+       MOBILE MENU
+       ============================================================ */
     function closeMobileMenu() {
-      hamburger.classList.remove('active');
-      mobileMenu.classList.remove('active');
+      if (hamburger) hamburger.classList.remove('active');
+      if (mobileMenu) mobileMenu.classList.remove('active');
       document.body.classList.remove('no-scroll');
     }
 
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        document.body.classList.toggle('no-scroll');
+      });
+
+      hamburger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          hamburger.click();
+        }
+      });
+    }
+
+    if (mobileMenuClose) {
+      mobileMenuClose.addEventListener('click', closeMobileMenu);
+    }
+
     /* MOBILE PRODUCTS DROPDOWN */
-    const mobileProductsDropdown = document.getElementById('mobileProductsDropdown');
-    const mobileProductsToggle = document.getElementById('mobileProductsToggle');
     if (mobileProductsToggle) {
       mobileProductsToggle.addEventListener('click', (e) => {
         e.preventDefault();
@@ -757,23 +915,28 @@
       });
     }
 
+    /* ESC key — close menu + modal */
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        if (mobileMenu.classList.contains('active')) closeMobileMenu();
-        if (modalOverlay.classList.contains('active')) closeModal();
+        if (mobileMenu && mobileMenu.classList.contains('active')) closeMobileMenu();
+        if (modalOverlay && modalOverlay.classList.contains('active')) closeModal();
       }
     });
 
+    /* Resize — auto close mobile menu above 1200px */
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 1200 && mobileMenu.classList.contains('active')) {
+      if (window.innerWidth > 1200 && mobileMenu && mobileMenu.classList.contains('active')) {
         closeMobileMenu();
       }
     });
 
-    /* THEME TOGGLE */
+    /* ============================================================
+       THEME TOGGLE
+       ============================================================ */
     document.addEventListener('DOMContentLoaded', () => {
       const themeToggle = document.getElementById('themeToggle');
       const themeIcon = document.getElementById('themeIcon');
+
       if (!themeToggle || !themeIcon) return;
 
       function applyTheme(theme) {
@@ -791,7 +954,9 @@
         try { localStorage.setItem('orexon-theme', theme); } catch (e) {}
       }
 
-      applyTheme(localStorage.getItem('orexon-theme') || 'dark');
+      let currentTheme = 'dark';
+      try { currentTheme = localStorage.getItem('orexon-theme') || 'dark'; } catch (e) {}
+      applyTheme(currentTheme);
 
       themeToggle.addEventListener('click', () => {
         const isLight = document.documentElement.getAttribute('data-theme') === 'light';
@@ -806,37 +971,31 @@
       });
     });
 
-    /* BACK TO TOP */
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 400) {
-        backToTop.classList.add('show');
-      } else {
-        backToTop.classList.remove('show');
-      }
-    });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    /* ============================================================
+       BACK TO TOP
+       ============================================================ */
+    if (backToTop) {
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 400) backToTop.classList.add('show');
+        else backToTop.classList.remove('show');
+      });
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
 
-    /* MODAL */
-    const modalOverlay = document.getElementById('modalOverlay');
-    const modalClose = document.getElementById('modalClose');
-    const modalFormWrap = document.getElementById('modalFormWrap');
-    const modalSuccess = document.getElementById('modalSuccess');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalSub = document.getElementById('modalSub');
-    const inquiryForm = document.getElementById('inquiryForm');
-    const successClose = document.getElementById('successClose');
-
+    /* ============================================================
+       MODAL
+       ============================================================ */
     function openModal(prefillInterest, titleText) {
+      if (!modalOverlay) return;
       modalFormWrap.style.display = 'block';
       modalSuccess.classList.remove('show');
       modalTitle.textContent = titleText || 'Send Inquiry';
-      modalSub.textContent = 'Fill in your details and we\'ll get back within 24 hours.';
+      modalSub.textContent = "Fill in your details and we'll get back within 24 hours.";
 
       const select = document.getElementById('inqInterest');
-      if (prefillInterest) {
+      if (prefillInterest && select) {
         let matched = false;
         Array.from(select.options).forEach(opt => {
           if (opt.value === prefillInterest || prefillInterest.toLowerCase().includes(opt.value.toLowerCase())) {
@@ -849,24 +1008,30 @@
 
       modalOverlay.classList.add('active');
       document.body.classList.add('no-scroll');
-      setTimeout(() => document.getElementById('inqName').focus(), 350);
+      setTimeout(() => {
+        const inqName = document.getElementById('inqName');
+        if (inqName) inqName.focus();
+      }, 350);
     }
 
     function closeModal() {
+      if (!modalOverlay) return;
       modalOverlay.classList.remove('active');
       document.body.classList.remove('no-scroll');
       setTimeout(() => {
-        inquiryForm.reset();
-        modalFormWrap.style.display = 'block';
-        modalSuccess.classList.remove('show');
+        if (inquiryForm) inquiryForm.reset();
+        if (modalFormWrap) modalFormWrap.style.display = 'block';
+        if (modalSuccess) modalSuccess.classList.remove('show');
       }, 300);
     }
 
-    modalClose.addEventListener('click', closeModal);
-    successClose.addEventListener('click', closeModal);
-    modalOverlay.addEventListener('click', (e) => {
-      if (e.target === modalOverlay) closeModal();
-    });
+    if (modalClose) modalClose.addEventListener('click', closeModal);
+    if (successClose) successClose.addEventListener('click', closeModal);
+    if (modalOverlay) {
+      modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) closeModal();
+      });
+    }
 
     document.querySelectorAll('[data-inquiry]').forEach(el => {
       el.addEventListener('click', (e) => {
@@ -874,71 +1039,57 @@
         e.stopPropagation();
         const interest = el.getAttribute('data-inquiry');
         const titleMap = {
-          'Bulk Order Management': 'Bulk Order Inquiry',
-          'Tailored Specifications': 'Tailored Specifications Inquiry',
-          'Pan-India Delivery': 'Pan-India Delivery Inquiry',
-          'After-Sales Support': 'After-Sales Support Inquiry',
           'General Inquiry': 'Send General Inquiry',
-          'Full B2B Catalog': 'View Full B2B Catalog'
+          'Full B2B Catalog': 'Request Full B2B Catalog'
         };
         const title = titleMap[interest] || 'Send Inquiry';
         openModal(interest, title);
       });
     });
 
-    /* Submit → WhatsApp — CLEAN PLAIN TEXT */
-    inquiryForm.addEventListener('submit', (e) => {
-      e.preventDefault();
+    /* Submit → WhatsApp */
+    if (inquiryForm) {
+      inquiryForm.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-      const name = document.getElementById('inqName').value.trim();
-      const email = document.getElementById('inqEmail').value.trim();
-      const company = document.getElementById('inqCompany').value.trim();
-      const interest = document.getElementById('inqInterest').value;
-      const message = document.getElementById('inqMessage').value.trim();
+        const name = document.getElementById('inqName').value.trim();
+        const email = document.getElementById('inqEmail').value.trim();
+        const company = document.getElementById('inqCompany').value.trim();
+        const interest = document.getElementById('inqInterest').value;
+        const message = document.getElementById('inqMessage').value.trim();
 
-      const lines = [
-        'NEW INQUIRY - OREXON LUXE',
-        '------------------------------',
-        '',
-        'Name:',
-        name,
-        '',
-        'Email:',
-        email,
-        '',
-        'Company:',
-        company,
-        '',
-        'Interested In:',
-        interest
-      ];
-
-      if (message) {
-        lines.push(
+        const lines = [
+          'NEW INQUIRY - OREXON LUXE',
+          '------------------------------',
           '',
-          'Message:',
-          message
-        );
-      }
+          'Name:', name,
+          '',
+          'Email:', email,
+          '',
+          'Company:', company,
+          '',
+          'Interested In:', interest
+        ];
 
-      lines.push(
-        '',
-        '------------------------------',
-        'Sent from OREXON LUXE website'
-      );
+        if (message) {
+          lines.push('', 'Message:', message);
+        }
 
-      const text = encodeURIComponent(lines.join('\n'));
-      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+        lines.push('', '------------------------------', 'Sent from OREXON LUXE website');
 
-      modalFormWrap.style.display = 'none';
-      modalSuccess.classList.add('show');
+        const text = encodeURIComponent(lines.join('\n'));
+        const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
 
-      setTimeout(() => {
-        window.open(waUrl, '_blank');
-      }, 400);
-    });
+        modalFormWrap.style.display = 'none';
+        modalSuccess.classList.add('show');
 
-    /* BRAND LOGO */
+        setTimeout(() => window.open(waUrl, '_blank'), 400);
+      });
+    }
+
+    /* ============================================================
+       BRAND LOGO
+       ============================================================ */
     document.querySelectorAll('.brand-logo').forEach(logo => {
       logo.addEventListener('click', (e) => {
         e.preventDefault();
