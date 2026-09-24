@@ -7,7 +7,6 @@
   <meta name="description" content="View detailed specifications, color variants, and enquire about OREXON LUXE premium hotel and hospitality products — hand dryers, smart toilets, sensor taps, mini fridges, and more." />
   <meta name="theme-color" content="#0d0e11" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="OREXON LUXE — Product Details" />
   <meta property="og:description" content="Premium hotel & hospitality supplies from Aligarh, UP. B2B enquiries welcome." />
@@ -15,7 +14,6 @@
 
   <link rel="canonical" href="product-detail.html" />
 
-  <!-- Prevent light-theme flash (FOUC) -->
   <script>
     (function () {
       try {
@@ -69,7 +67,7 @@
     h1, h2, h3, h4, .brand-logo { font-family: 'Cormorant Garamond', serif; letter-spacing: 0.05em; }
 
     /* ============================================================
-       NAVIGATION — Bulletproof layout, no overlaps on any device
+       NAVIGATION — Brand left, toggle + links right side
        ============================================================ */
     header {
       background-color: var(--bg-dark);
@@ -86,20 +84,28 @@
       min-width: 0;
     }
 
+    .brand-logo {
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
     .nav-left {
       display: flex;
       align-items: center;
       gap: 2rem;
       flex-shrink: 0;
-      max-width: 40%;
       overflow: visible;
+      margin-left: auto;
     }
 
-    .nav-left .nav-links {
-      display: flex;
-      align-items: center;
-      flex-wrap: nowrap;
-    }
+    .nav-left .nav-links { display: flex; align-items: center; flex-wrap: nowrap; }
 
     .nav-left .nav-links > a,
     .nav-left .nav-links .nav-dropdown > a {
@@ -117,9 +123,7 @@
       white-space: nowrap;
     }
     .nav-left .nav-links > a:last-child,
-    .nav-left .nav-links .nav-dropdown:last-child > a {
-      margin-right: 0;
-    }
+    .nav-left .nav-links .nav-dropdown:last-child > a { margin-right: 0; }
     .nav-left .nav-links > a:hover,
     .nav-left .nav-links .nav-dropdown > a:hover { color: var(--gold-primary); }
     .nav-left .nav-links > a.active,
@@ -128,6 +132,7 @@
     .nav-dropdown { position: relative; display: inline-block; }
     .nav-dropdown > a i { font-size: 0.6rem; transition: transform 0.3s ease; }
     .nav-dropdown:hover > a i { transform: rotate(180deg); }
+
     .dropdown-menu { position: absolute; top: 100%; left: -1rem; min-width: 220px; background: var(--card-dark); border: 1px solid rgba(207, 171, 85, 0.35); border-radius: 12px; padding: 0.6rem 0; margin-top: 0; opacity: 0; visibility: hidden; transform: translateY(10px); transform-origin: top left; transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6); z-index: 9999; pointer-events: none; }
     .dropdown-menu::before { content: ''; position: absolute; top: -6px; left: 2rem; width: 12px; height: 12px; background: var(--card-dark); border-left: 1px solid rgba(207, 171, 85, 0.35); border-top: 1px solid rgba(207, 171, 85, 0.35); transform: rotate(45deg); }
     .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto; }
@@ -135,8 +140,7 @@
     .dropdown-menu a i { font-size: 0.75rem; color: var(--gold-primary); width: 16px; text-align: center; }
     .dropdown-menu a:hover { color: var(--gold-light); background: rgba(207, 171, 85, 0.08); padding-left: 1.6rem; }
 
-    .brand-logo { font-size: 1.85rem; font-weight: 700; color: var(--gold-light); text-decoration: none; text-transform: uppercase; letter-spacing: 0.22em; position: absolute; left: 50%; transform: translateX(-50%); cursor: pointer; white-space: nowrap; }
-    .nav-right { display: flex; gap: 1.4rem; align-items: center; flex-shrink: 0; max-width: 15%; justify-content: flex-end; }
+    .nav-right { display: flex; gap: 1.4rem; align-items: center; flex-shrink: 0; justify-content: flex-end; }
     .nav-right a { color: var(--text-muted); font-size: 1.05rem; cursor: pointer; transition: color 0.3s, transform 0.3s; text-decoration: none; display: flex; align-items: center; justify-content: center; min-width: 40px; min-height: 40px; }
     .nav-right a:hover { color: var(--gold-primary); transform: translateY(-2px); }
 
@@ -163,62 +167,22 @@
     .mobile-dropdown-menu a:hover, .mobile-dropdown-menu a.active { color: var(--gold-primary); }
     .mobile-dropdown-menu a i { font-size: 0.7rem; color: var(--gold-primary); width: 16px; text-align: center; }
 
-    /* CONTAINER */
     .container { max-width: 1200px; margin: 0 auto; width: 100%; }
 
-    /* BREADCRUMB */
     .breadcrumb { display: flex; align-items: center; gap: 0.6rem; padding: 2rem 0 1rem; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); flex-wrap: wrap; }
     .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: color 0.3s; }
     .breadcrumb a:hover { color: var(--gold-primary); }
     .breadcrumb i { font-size: 0.55rem; opacity: 0.6; }
     .breadcrumb .current { color: var(--gold-primary); }
 
-    /* PRODUCT DETAIL LAYOUT */
     .product-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; padding: 1.5rem 0 4rem; align-items: flex-start; }
     .detail-img-section { position: sticky; top: 120px; }
 
-    .detail-main-img {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      background: transparent;
-      border-radius: 20px;
-      overflow: visible;
-      isolation: isolate;
-    }
-    .detail-main-img img {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      border-radius: 20px;
-      border: 1px solid rgba(207, 171, 85, 0.2);
-      transition: transform 0.6s ease, opacity 0.3s ease;
-    }
+    .detail-main-img { position: relative; width: 100%; aspect-ratio: 1 / 1; background: transparent; border-radius: 20px; overflow: visible; isolation: isolate; }
+    .detail-main-img img { position: relative; z-index: 2; width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 20px; border: 1px solid rgba(207, 171, 85, 0.2); transition: transform 0.6s ease, opacity 0.3s ease; }
     .detail-main-img:hover img { transform: scale(1.04); }
 
-    .detail-main-img::before {
-      content: '';
-      position: absolute;
-      inset: -12%;
-      z-index: 1;
-      border-radius: 50%;
-      background: radial-gradient(
-        circle at center,
-        rgba(207, 171, 85, 0.55) 0%,
-        rgba(207, 171, 85, 0.30) 25%,
-        rgba(207, 171, 85, 0.12) 45%,
-        rgba(207, 171, 85, 0.04) 62%,
-        transparent 78%
-      );
-      filter: blur(38px);
-      opacity: 0.85;
-      transition: opacity 0.5s ease, transform 0.5s ease, inset 0.5s ease;
-      pointer-events: none;
-      animation: glowPulse 5s ease-in-out infinite;
-    }
+    .detail-main-img::before { content: ''; position: absolute; inset: -12%; z-index: 1; border-radius: 50%; background: radial-gradient(circle at center, rgba(207, 171, 85, 0.55) 0%, rgba(207, 171, 85, 0.30) 25%, rgba(207, 171, 85, 0.12) 45%, rgba(207, 171, 85, 0.04) 62%, transparent 78%); filter: blur(38px); opacity: 0.85; transition: opacity 0.5s ease, transform 0.5s ease, inset 0.5s ease; pointer-events: none; animation: glowPulse 5s ease-in-out infinite; }
     .detail-main-img:hover::before { opacity: 1; inset: -16%; transform: scale(1.05); }
     .detail-main-img::after { content: none; }
 
@@ -234,7 +198,6 @@
     .detail-info h1 em { font-style: italic; color: var(--gold-light); font-weight: 400; }
     .detail-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 2.2rem; }
 
-    /* COLOR VARIANTS */
     .detail-color-row { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 2rem; padding-top: 1.8rem; border-top: 1px solid rgba(207, 171, 85, 0.15); }
     .detail-color-row .color-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-right: 0.4rem; }
     .detail-color-row .color-swatch { width: 26px; height: 26px; border-radius: 50%; border: 2px solid rgba(207, 171, 85, 0.3); cursor: pointer; transition: all 0.25s ease; padding: 0; background-clip: content-box; background-origin: content-box; background-size: cover; background-position: center; position: relative; }
@@ -264,7 +227,6 @@
     .trust-item { display: flex; align-items: center; gap: 0.7rem; font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.05em; }
     .trust-item i { color: var(--gold-primary); font-size: 1rem; }
 
-    /* RELATED PRODUCTS */
     .related-section { padding: 2rem 0 4.5rem; }
     .related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3rem 2.4rem; margin-top: 2rem; }
 
@@ -275,44 +237,22 @@
     .related-img-wrap img { position: relative; z-index: 2; width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 6px; transition: transform 0.7s ease, filter 0.4s ease; }
     .related-card:hover .related-img-wrap img { transform: scale(1.05); filter: brightness(1.05); }
 
-    .related-img-wrap::before {
-      content: '';
-      position: absolute;
-      inset: -18%;
-      z-index: 1;
-      border-radius: 50%;
-      background: radial-gradient(
-        circle at center,
-        rgba(207, 171, 85, 0.55) 0%,
-        rgba(207, 171, 85, 0.30) 25%,
-        rgba(207, 171, 85, 0.12) 45%,
-        rgba(207, 171, 85, 0.04) 62%,
-        transparent 78%
-      );
-      filter: blur(28px);
-      opacity: 0.85;
-      transition: opacity 0.5s ease, transform 0.5s ease, inset 0.5s ease;
-      pointer-events: none;
-      animation: glowPulse 5s ease-in-out infinite;
-    }
+    .related-img-wrap::before { content: ''; position: absolute; inset: -18%; z-index: 1; border-radius: 50%; background: radial-gradient(circle at center, rgba(207, 171, 85, 0.55) 0%, rgba(207, 171, 85, 0.30) 25%, rgba(207, 171, 85, 0.12) 45%, rgba(207, 171, 85, 0.04) 62%, transparent 78%); filter: blur(28px); opacity: 0.85; transition: opacity 0.5s ease, transform 0.5s ease, inset 0.5s ease; pointer-events: none; animation: glowPulse 5s ease-in-out infinite; }
     .related-card:hover .related-img-wrap::before { opacity: 1; inset: -22%; transform: scale(1.05); }
 
     .related-body { padding: 0; background: transparent; border: none; position: relative; z-index: 3; }
     .related-body h4 { font-size: 0.98rem; color: var(--gold-light); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.35rem; font-weight: 600; font-family: 'Cormorant Garamond', serif; line-height: 1.3; }
     .related-body p { font-size: 0.68rem; color: var(--text-muted); line-height: 1.6; letter-spacing: 0.05em; text-transform: uppercase; }
 
-    /* SECTION HEADINGS */
     .section-title { text-align: center; font-size: 2.2rem; margin: 0 0 0.6rem; color: var(--gold-light); }
     .section-sub { text-align: center; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 2rem; }
 
-    /* CTA SECTION */
     .cta-box { background: linear-gradient(135deg, rgba(207, 171, 85, 0.12) 0%, rgba(25, 27, 32, 0.9) 100%); border: 1px solid rgba(207, 171, 85, 0.35); border-radius: 20px; padding: 3.5rem 2.5rem; text-align: center; max-width: 800px; margin: 0 auto; transition: background 0.4s ease; }
     .cta-box h2 { font-size: 2.2rem; color: var(--gold-light); margin-bottom: 0.8rem; font-weight: 600; }
     .cta-box p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
     .btn-gold { display: inline-block; background: var(--gold-primary); color: #0b0c0e; padding: 0.8rem 2.2rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; transition: all 0.3s ease; border: 1px solid var(--gold-primary); cursor: pointer; font-family: 'Montserrat', sans-serif; min-height: 44px; }
     .btn-gold:hover { background: transparent; color: var(--gold-primary); }
 
-    /* FOOTER */
     .site-footer { background: #08080a; border-top: 1px solid rgba(207, 171, 85, 0.25); padding: 4.5rem 0 0; position: relative; overflow: hidden; transition: background 0.4s ease; }
     .site-footer::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 400px; max-width: 90%; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-primary), transparent); opacity: 0.6; }
     .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 3rem; margin-bottom: 3.5rem; }
@@ -334,49 +274,14 @@
     .footer-bottom-links a { font-size: 0.68rem; color: var(--surface-gray); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s; cursor: pointer; padding: 0.4rem 0; display: inline-block; }
     .footer-bottom-links a:hover { color: var(--gold-primary); }
 
-    /* FLOATING BUTTONS */
-    .back-to-top,
-    .whatsapp-float {
-      position: fixed;
-      right: 20px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 90;
-      cursor: pointer;
-      text-decoration: none;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease, opacity 0.4s ease;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .back-to-top {
-      bottom: 85px;
-      width: 46px;
-      height: 46px;
-      background: var(--gold-primary);
-      color: #0b0c0e;
-      border: 1px solid var(--gold-primary);
-      font-size: 1rem;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
-      opacity: 0;
-      pointer-events: none;
-    }
+    .back-to-top, .whatsapp-float { position: fixed; right: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 90; cursor: pointer; text-decoration: none; transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease, opacity 0.4s ease; -webkit-tap-highlight-color: transparent; }
+    .back-to-top { bottom: 85px; width: 46px; height: 46px; background: var(--gold-primary); color: #0b0c0e; border: 1px solid var(--gold-primary); font-size: 1rem; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45); opacity: 0; pointer-events: none; }
     .back-to-top.show { opacity: 1; pointer-events: all; }
     .back-to-top:hover { background: transparent; color: var(--gold-primary); transform: translateY(-3px); }
 
-    .whatsapp-float {
-      bottom: 20px;
-      width: 52px;
-      height: 52px;
-      background: var(--whatsapp-green);
-      color: #ffffff;
-      font-size: 1.55rem;
-      box-shadow: 0 8px 22px rgba(37, 211, 102, 0.45);
-      z-index: 89;
-    }
+    .whatsapp-float { bottom: 20px; width: 52px; height: 52px; background: var(--whatsapp-green); color: #ffffff; font-size: 1.55rem; box-shadow: 0 8px 22px rgba(37, 211, 102, 0.45); z-index: 89; }
     .whatsapp-float:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(37, 211, 102, 0.6); }
 
-    /* LIGHT THEME FIXES */
     [data-theme="light"] header { border-bottom: 1px solid rgba(0, 0, 0, 0.08); }
     [data-theme="light"] .site-footer { background: #ece8e0; }
     [data-theme="light"] .mobile-menu { background: rgba(247, 245, 240, 0.98); }
@@ -389,31 +294,18 @@
     [data-theme="light"] .detail-color-row .color-swatch.white { background-color: #ffffff; border-color: rgba(0,0,0,0.2); }
     [data-theme="light"] .detail-main-img::before,
     [data-theme="light"] .related-img-wrap::before {
-      background: radial-gradient(
-        circle at center,
-        rgba(184, 148, 46, 0.40) 0%,
-        rgba(184, 148, 46, 0.22) 25%,
-        rgba(184, 148, 46, 0.10) 45%,
-        rgba(184, 148, 46, 0.03) 62%,
-        transparent 78%
-      );
+      background: radial-gradient(circle at center, rgba(184, 148, 46, 0.40) 0%, rgba(184, 148, 46, 0.22) 25%, rgba(184, 148, 46, 0.10) 45%, rgba(184, 148, 46, 0.03) 62%, transparent 78%);
     }
 
-    /* ============================================================
-       RESPONSIVE — GRADUATED NAV BREAKPOINTS
-       ============================================================ */
     @media (min-width: 640px) {
       .container { padding-left: 2.5rem; padding-right: 2.5rem; }
     }
-
     @media (min-width: 968px) {
       .container { padding-left: 4rem; padding-right: 4rem; }
     }
-
     @media (max-width: 1200px) {
       .related-grid { grid-template-columns: repeat(3, 1fr); gap: 2.8rem 2rem; }
     }
-
     @media (max-width: 1399px) {
       header { padding: 1.3rem 3rem; }
       .nav-left { gap: 1.5rem; }
@@ -425,13 +317,12 @@
       }
       .brand-logo { font-size: 1.7rem; letter-spacing: 0.2em; }
     }
-
     @media (max-width: 1200px) {
       header { padding: 1.2rem 1.5rem; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
       .nav-left .nav-links { display: none; }
-      .nav-left { max-width: none; overflow: visible; gap: 0; }
-      .nav-right { max-width: none; }
+      .nav-left { margin-left: 0; }
+      .nav-right { margin-left: auto; }
       .hamburger { display: flex; }
       .brand-logo { font-size: 1.4rem; letter-spacing: 0.18em; }
       .product-detail { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -439,15 +330,12 @@
       .detail-info h1 { font-size: 2.4rem; }
       .related-grid { grid-template-columns: repeat(2, 1fr); gap: 2.6rem 2rem; }
     }
-
     @media (min-width: 1201px) { .hamburger { display: none; } }
-
     @media (max-width: 640px) {
       header { padding: 1rem 1.2rem; }
       .footer-grid { grid-template-columns: 1fr; gap: 2.2rem; }
       .footer-bottom { flex-direction: column; text-align: center; gap: 1.2rem; }
       .footer-bottom-links { justify-content: center; gap: 1.2rem; }
-
       .detail-info h1 { font-size: 2rem; }
       .specs-list { grid-template-columns: 1fr; }
       .related-grid { grid-template-columns: 1fr; gap: 2.6rem; }
@@ -456,7 +344,6 @@
       .detail-actions { flex-direction: column; }
       .detail-actions .btn-primary-gold, .detail-actions .btn-outline-gold { width: 100%; justify-content: center; }
     }
-
     @media (max-width: 480px) {
       header { padding: 0.9rem 1rem; }
       .brand-logo { font-size: 1.1rem; letter-spacing: 0.15em; }
@@ -473,32 +360,26 @@
       .section-title { font-size: 1.8rem; }
       .footer-socials a { width: 42px; height: 42px; font-size: 0.95rem; }
     }
-
     @media (max-width: 968px) {
-      .back-to-top,
-      .whatsapp-float { right: 16px; }
+      .back-to-top, .whatsapp-float { right: 16px; }
       .back-to-top { bottom: 78px; width: 42px; height: 42px; font-size: 0.9rem; }
       .whatsapp-float { bottom: 16px; width: 50px; height: 50px; font-size: 1.45rem; }
     }
     @media (max-width: 640px) {
-      .back-to-top,
-      .whatsapp-float { right: 15px; }
+      .back-to-top, .whatsapp-float { right: 15px; }
       .back-to-top { bottom: 76px; width: 40px; height: 40px; font-size: 0.85rem; }
       .whatsapp-float { bottom: 15px; width: 48px; height: 48px; font-size: 1.4rem; }
     }
     @media (max-width: 480px) {
-      .back-to-top,
-      .whatsapp-float { right: 12px; }
+      .back-to-top, .whatsapp-float { right: 12px; }
       .back-to-top { bottom: 70px; width: 38px; height: 38px; font-size: 0.8rem; }
       .whatsapp-float { bottom: 12px; width: 44px; height: 44px; font-size: 1.3rem; }
     }
     @media (max-width: 360px) {
-      .back-to-top,
-      .whatsapp-float { right: 10px; }
+      .back-to-top, .whatsapp-float { right: 10px; }
       .back-to-top { bottom: 66px; width: 36px; height: 36px; font-size: 0.75rem; }
       .whatsapp-float { bottom: 10px; width: 42px; height: 42px; font-size: 1.25rem; }
     }
-
     @media (prefers-reduced-motion: reduce) {
       .detail-main-img img, .related-img-wrap img, .detail-color-row .color-swatch { transition: none; }
       .detail-main-img::before, .related-img-wrap::before { animation: none; }
@@ -521,6 +402,14 @@
 
   <!-- Navigation -->
   <header>
+    <a href="index.html" class="brand-logo">OREXON LUXE</a>
+
+    <div class="nav-right">
+      <a id="themeToggle" title="Toggle theme" aria-label="Toggle dark/light mode" role="button" tabindex="0">
+        <i class="fa-solid fa-sun" id="themeIcon"></i>
+      </a>
+    </div>
+
     <div class="nav-left">
       <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
         <span></span><span></span><span></span>
@@ -545,14 +434,6 @@
         <a href="services.html">Services</a>
         <a href="contact.html">Contact</a>
       </nav>
-    </div>
-
-    <a href="index.html" class="brand-logo">OREXON LUXE</a>
-
-    <div class="nav-right">
-      <a id="themeToggle" title="Toggle theme" aria-label="Toggle dark/light mode" role="button" tabindex="0">
-        <i class="fa-solid fa-sun" id="themeIcon"></i>
-      </a>
     </div>
   </header>
 
@@ -723,413 +604,42 @@
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <!-- Floating WhatsApp Button (href set by JS) -->
   <a class="whatsapp-float" id="whatsappFloat"
      href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
   <script>
-    /* CONFIG */
     const WHATSAPP_NUMBER = '919762769608';
     const PAGE_URL = 'product-detail.html';
 
-    /* PRODUCT DATABASE */
     const productsDB = {
-      /* ---------- HAND DRYERS ---------- */
-      'hand-dryer-ss': {
-        name: 'Automatic Stainless Steel Hand Dryer',
-        category: 'Electric Hand Dryers',
-        categorySlug: 'hand-dryer',
-        categoryIcon: 'fa-wind',
-        description: 'Ultra-quiet, energy-efficient hand dryer with HEPA filtration and touchless activation for modern hotel washrooms. High-speed, durable, and elegant stainless steel body that complements premium interiors.',
-        image: 'orexonluxe-nobg/handdryer-1.webp',
-        specs: [
-          { icon: 'fa-bolt', text: '2300W Powerful Performance' },
-          { icon: 'fa-clock', text: '10-Second Fast Drying' },
-          { icon: 'fa-gauge-high', text: '90 m/s High Air Speed' },
-          { icon: 'fa-shield-halved', text: 'Premium SS 304 Body' },
-          { icon: 'fa-award', text: '6-Month Warranty' }
-        ]
-      },
-      'hand-dryer-orexon': {
-        name: 'Orexon Wall Mounted Automatic Hand Dryer',
-        category: 'Electric Hand Dryers',
-        categorySlug: 'hand-dryer',
-        categoryIcon: 'fa-wind',
-        description: 'Compact and efficient automatic hand dryer designed for standard hotel washrooms. Combines reliable performance with a sleek, space-saving profile.',
-        image: 'orexonluxe-nobg/handdryer-2.webp',
-        specs: [
-          { icon: 'fa-bolt', text: '1800W Power' },
-          { icon: 'fa-clock', text: '10-Second Drying' },
-          { icon: 'fa-gauge-high', text: '90 m/s Air Speed' },
-          { icon: 'fa-screwdriver-wrench', text: 'Wall-Mounted Design' },
-          { icon: 'fa-award', text: '6-Month Warranty' }
-        ]
-      },
-      'hand-dryer-jet': {
-        name: 'Jet Dryer Smart 7s High Speed Air',
-        category: 'Electric Hand Dryers',
-        categorySlug: 'hand-dryer',
-        categoryIcon: 'fa-wind',
-        description: 'Premium high-speed air jet hand dryer engineered for luxury hotels and premium washrooms. Delivers rapid drying with a sleek, modern aesthetic.',
-        image: 'orexonluxe-nobg/handdryer-3.webp',
-        specs: [
-          { icon: 'fa-bolt', text: '7-10 Second Ultra-Fast Drying' },
-          { icon: 'fa-gears', text: '2000W High-Speed Motor' },
-          { icon: 'fa-filter', text: 'HEPA Filter for Better Hygiene' },
-          { icon: 'fa-volume-low', text: 'Low-Noise Operation' },
-          { icon: 'fa-award', text: '6-Month Warranty' }
-        ]
-      },
-      'compact-hand-dryer': {
-        name: 'Automatic ODX2 Electric Hand Dryer',
-        category: 'Electric Hand Dryers',
-        categorySlug: 'hand-dryer',
-        categoryIcon: 'fa-wind',
-        description: 'Premium high-speed compact hand dryer designed for luxury hotels and premium washrooms. Perfect for spaces where elegance and efficiency matter.',
-        image: 'orexonluxe-nobg/handdryer-4.webp',
-        specs: [
-          { icon: 'fa-bolt', text: '7-10 Second Ultra-Fast Drying' },
-          { icon: 'fa-hand', text: 'Touchless Infrared Activation' },
-          { icon: 'fa-gears', text: '2000W High-Speed Performance' },
-          { icon: 'fa-gauge-high', text: '90 m/s Air Speed' },
-          { icon: 'fa-award', text: '6-Month Warranty' }
-        ]
-      },
-      'steel-hand-dryer': {
-        name: 'Steel Hand Dryer',
-        category: 'Electric Hand Dryers',
-        categorySlug: 'hand-dryer',
-        categoryIcon: 'fa-wind',
-        description: 'Heavy-duty stainless steel hand dryer engineered for high-traffic hospitality washrooms. Built for durability and consistent performance.',
-        image: 'orexonluxe-nobg/handdryer-5.webp',
-        specs: [
-          { icon: 'fa-shield-halved', text: 'Heavy-Duty Stainless Steel' },
-          { icon: 'fa-bolt', text: 'High-Speed Motor' },
-          { icon: 'fa-hand', text: 'Touchless Activation' },
-          { icon: 'fa-gauge-high', text: 'Powerful Airflow' },
-          { icon: 'fa-award', text: '6-Month Warranty' }
-        ]
-      },
-      'high-speed-hand-dryer': {
-        name: 'High Speed Hand Dryer',
-        category: 'Electric Hand Dryers',
-        categorySlug: 'hand-dryer',
-        categoryIcon: 'fa-wind',
-        description: 'Ultra-fast drying performance with powerful airflow for busy premium washrooms. Engineered to keep pace with high-traffic environments.',
-        image: 'orexonluxe-nobg/handdryer-6.webp',
-        specs: [
-          { icon: 'fa-gauge-high', text: 'Ultra-Fast Drying' },
-          { icon: 'fa-bolt', text: 'Powerful Motor' },
-          { icon: 'fa-hand', text: 'Touchless Operation' },
-          { icon: 'fa-volume-low', text: 'Low Noise' },
-          { icon: 'fa-award', text: '6-Month Warranty' }
-        ]
-      },
-
-      /* ---------- MINI FRIDGES ---------- */
-      'mini-fridge-solid': {
-        name: 'Solid Door Mini Bar Fridge 50L',
-        category: 'Mini Fridges',
-        categorySlug: 'mini-fridge',
-        categoryIcon: 'fa-snowflake',
-        description: 'Whisper-quiet absorption cooling technology with a solid-door elegant finish, perfect for hotel rooms and offices. 50L capacity with reliable, virtually maintenance-free operation.',
-        image: 'orexonluxe-nobg/minifridge-1.webp',
-        specs: [
-          { icon: 'fa-volume-xmark', text: 'Whisper-Quiet Absorption Cooling' },
-          { icon: 'fa-temperature-low', text: 'Reliable Cooling Performance' },
-          { icon: 'fa-door-closed', text: 'Solid Door with Premium Finish' },
-          { icon: 'fa-cube', text: 'Capacity: 50 Litres' },
-          { icon: 'fa-award', text: '1-Year Warranty' }
-        ]
-      },
-      'mini-fridge-glass': {
-        name: 'Glass Door Mini Bar Fridge 50L',
-        category: 'Mini Fridges',
-        categorySlug: 'mini-fridge',
-        categoryIcon: 'fa-snowflake',
-        description: 'Stylish glass-door mini bar with efficient cooling and an elegant display. Showcases your premium beverages with sophistication while keeping them perfectly chilled.',
-        image: 'orexonluxe-nobg/minifridge-2.webp',
-        specs: [
-          { icon: 'fa-volume-xmark', text: 'Whisper-Quiet Operation' },
-          { icon: 'fa-temperature-low', text: 'Efficient Cooling Performance' },
-          { icon: 'fa-martini-glass', text: 'Elegant Glass Door Display' },
-          { icon: 'fa-cube', text: 'Capacity: 50 Litres' },
-          { icon: 'fa-award', text: '1-Year Warranty' }
-        ]
-      },
-
-      /* ---------- SENSOR TAPS ---------- */
-      'sensor-tap-curve': {
-        name: 'Curve Automatic Sensor Water Tap',
-        category: 'Sensor Taps',
-        categorySlug: 'sensor-tap',
-        categoryIcon: 'fa-faucet-drip',
-        description: 'Touchless infrared faucet with an elegant curve design and water-saving aerator. Activates only when hands are present and shuts off automatically, elevating hygiene and sustainability in hotel washrooms.',
-        image: 'orexonluxe-nobg/tap-1.webp',
-        specs: [
-          { icon: 'fa-hand', text: 'Touchless Infrared Activation' },
-          { icon: 'fa-leaf', text: 'Water-Saving Aerator' },
-          { icon: 'fa-satellite-dish', text: '5 cm Sensor Range' },
-          { icon: 'fa-clock', text: 'Auto Shut-Off Feature' },
-          { icon: 'fa-award', text: '6-Month Warranty' }
-        ]
-      },
-      'sensor-tap-brass': {
-        name: 'Brass Sensor Faucet',
-        category: 'Sensor Taps',
-        categorySlug: 'sensor-tap',
-        categoryIcon: 'fa-faucet-drip',
-        description: 'Durable brass construction with precise touchless sensor technology. Engineered for long-lasting performance and refined aesthetics in hospitality environments.',
-        image: 'orexonluxe-nobg/tap-2.webp',
-        specs: [
-          { icon: 'fa-hand', text: 'Touchless Infrared Activation' },
-          { icon: 'fa-shield-halved', text: 'Durable Brass Construction' },
-          { icon: 'fa-leaf', text: 'Water-Saving Aerator' },
-          { icon: 'fa-satellite-dish', text: '20 cm Sensor Range' },
-          { icon: 'fa-award', text: '6-Month Warranty' }
-        ]
-      },
-      'smart-washroom-faucet': {
-        name: 'Smart Washroom Faucet',
-        category: 'Sensor Taps',
-        categorySlug: 'sensor-tap',
-        categoryIcon: 'fa-faucet-drip',
-        description: 'Modern touchless faucet with intelligent sensing and hygienic hands-free operation. Designed to elevate hygiene and comfort in premium washroom environments.',
-        image: 'orexonluxe-nobg/tap-3.webp',
-        specs: [
-          { icon: 'fa-microchip', text: 'Intelligent Touchless Sensing' },
-          { icon: 'fa-hand-sparkles', text: 'Hygienic Hands-Free Operation' },
-          { icon: 'fa-leaf', text: 'Water-Saving Technology' },
-          { icon: 'fa-clock', text: 'Auto Shut-Off Feature' },
-          { icon: 'fa-award', text: '6-Month Warranty' }
-        ]
-      },
-      'pure-flow-sensor-tap': {
-        name: 'Pure Flow Sensor Tap',
-        category: 'Sensor Taps',
-        categorySlug: 'sensor-tap',
-        categoryIcon: 'fa-faucet-drip',
-        description: 'Precision-engineered sensor tap delivering consistent water flow with minimal waste. Combines advanced touchless technology with refined aesthetics.',
-        image: 'orexonluxe-nobg/tap-4.webp',
-        specs: [
-          { icon: 'fa-hand', text: 'Touchless Infrared Activation' },
-          { icon: 'fa-droplet', text: 'Consistent Water Flow' },
-          { icon: 'fa-leaf', text: 'Minimal Water Waste' },
-          { icon: 'fa-ruler-combined', text: 'Precision Engineering' },
-          { icon: 'fa-award', text: '6-Month Warranty' }
-        ]
-      },
-
-      /* ---------- SOAP DISPENSERS ---------- */
-      'soap-dispenser-auto': {
-        name: 'Touch Free Automatic Soap Dispenser',
-        category: 'Soap Dispensers',
-        categorySlug: 'soap-dispenser',
-        categoryIcon: 'fa-pump-soap',
-        description: 'Economical touch-free soap dispenser designed for high-traffic washrooms. Combines reliable performance with elegant simplicity.',
-        image: 'orexonluxe-nobg/soapdispenser-1.webp',
-        specs: [
-          { icon: 'fa-hand', text: 'Liquid Drop Dispensing' },
-          { icon: 'fa-droplet', text: 'Precise Dosing Per Activation' },
-          { icon: 'fa-fill-drip', text: 'Refillable Cartridge' },
-          { icon: 'fa-battery-full', text: 'Battery Powered Operation' },
-          { icon: 'fa-award', text: '6-Month Warranty' }
-        ]
-      },
-      'soap-dispenser-sensor': {
-        name: 'Touch Free Sensor Soap Dispenser',
-        category: 'Soap Dispensers',
-        categorySlug: 'soap-dispenser',
-        categoryIcon: 'fa-pump-soap',
-        description: 'Wall-mounted touchless dispenser with precise dosing and a premium finish. Reduces cross-contamination and waste while delivering a consistently elegant guest experience.',
-        image: 'orexonluxe-nobg/soapdispenser-2.webp',
-        specs: [
-          { icon: 'fa-spray-can-sparkles', text: 'Automatic Spray Dispensing' },
-          { icon: 'fa-flask', text: '1000 ml Capacity' },
-          { icon: 'fa-fill-drip', text: 'Refillable Cartridge' },
-          { icon: 'fa-battery-full', text: 'Battery Powered Operation' },
-          { icon: 'fa-award', text: '6-Month Warranty' }
-        ]
-      },
-      'soap-dispenser-liquid': {
-        name: 'Automatic Liquid Soap Dispenser',
-        category: 'Soap Dispensers',
-        categorySlug: 'soap-dispenser',
-        categoryIcon: 'fa-pump-soap',
-        description: 'Sleek sensor-operated dispenser engineered for liquid soap. Modern minimalist design with reliable touchless operation and precise dosing for premium washrooms.',
-        image: 'orexonluxe-nobg/soapdispenser-3.webp',
-        specs: [
-          { icon: 'fa-hand', text: 'Sensor-Operated Touchless' },
-          { icon: 'fa-flask', text: 'Liquid Soap Compatible' },
-          { icon: 'fa-droplet', text: 'Precise Dosing Control' },
-          { icon: 'fa-compress', text: 'Minimalist Sleek Design' },
-          { icon: 'fa-award', text: '6-Month Warranty' }
-        ]
-      },
-
-      /* ---------- HAIR DRYERS (separate category) ---------- */
-      'hair-dryer': {
-        name: 'Orexon Luxe High Speed Hair Dryer',
-        category: 'Hair Dryers',
-        categorySlug: 'hair-dryer',
-        categoryIcon: 'fa-wind',
-        description: 'Wall-mounted hotel hair dryer with high-speed drying and safety features. Designed for premium guestroom bathrooms with a sleek, compact profile.',
-        image: 'orexonluxe-nobg/hairdryer-1.webp',
-        specs: [
-          { icon: 'fa-bolt', text: '1200W, 220V Powerful Motor' },
-          { icon: 'fa-temperature-half', text: 'Multiple Heat Settings' },
-          { icon: 'fa-plug', text: '1.2m Cord Length' },
-          { icon: 'fa-screwdriver-wrench', text: 'Wall-Mounted Design' },
-          { icon: 'fa-award', text: '6-Month Warranty' }
-        ]
-      },
-
-      /* ---------- ELECTRIC KETTLES (separate category) ---------- */
-      'electric-kettle': {
-        name: 'Electric Tea Kettle with Cups & Tray',
-        category: 'Electric Kettles',
-        categorySlug: 'electric-kettle',
-        categoryIcon: 'fa-mug-hot',
-        description: 'Premium electric kettle set with cups and tray for guestroom hospitality. Elegant presentation and reliable performance in one complete package.',
-        image: 'orexonluxe-nobg/kettle-1.webp',
-        specs: [
-          { icon: 'fa-bolt', text: 'Rapid Boiling Performance' },
-          { icon: 'fa-fire-flame-simple', text: 'SS304 Heating Element' },
-          { icon: 'fa-mug-hot', text: 'Complete Tray & Cup Set' },
-          { icon: 'fa-cube', text: '2.0 Litre Capacity' },
-          { icon: 'fa-award', text: '6-Month Warranty' }
-        ]
-      },
-      'compact-electric-kettle': {
-        name: 'Compact Electric Kettle',
-        category: 'Electric Kettles',
-        categorySlug: 'electric-kettle',
-        categoryIcon: 'fa-mug-hot',
-        description: 'Space-saving compact electric kettle for premium guestroom hospitality. Delivers fast boiling with a minimal footprint.',
-        image: 'orexonluxe-nobg/kettle-2.webp',
-        specs: [
-          { icon: 'fa-bolt', text: 'Fast Boiling Performance' },
-          { icon: 'fa-shield-halved', text: 'Auto Shut-Off Safety' },
-          { icon: 'fa-compress', text: 'Space-Saving Design' },
-          { icon: 'fa-cube', text: 'Compact Guestroom Size' },
-          { icon: 'fa-award', text: '6-Month Warranty' }
-        ]
-      },
-
-      /* ---------- LANDLINE PHONES ---------- */
-      'landline-corded-black': {
-        name: 'Corded Landline Phone — Standard — Black',
-        category: 'Landline Phones',
-        categorySlug: 'landline-phone',
-        categoryIcon: 'fa-phone',
-        description: 'Elegant corded hotel room telephone with clear sound quality and a comfortable handset. Finished in a deep, classic black that complements premium guestroom interiors.',
-        image: 'orexonluxe-nobg/phone-1b.webp',
-        variantOf: 'landline-corded',
-        variantColor: 'black',
-        variantLabel: 'Black',
-        colorVariants: ['black', 'white'],
-        specs: [
-          { icon: 'fa-volume-high', text: 'Clear Sound Quality' },
-          { icon: 'fa-palette', text: 'Elegant Black Finish' },
-          { icon: 'fa-shield-halved', text: 'Durable Construction' },
-          { icon: 'fa-compress', text: 'Compact Desktop Footprint' },
-          { icon: 'fa-award', text: '6-Month Warranty' }
-        ]
-      },
-      'landline-corded-white': {
-        name: 'Corded Landline Phone — Standard — White',
-        category: 'Landline Phones',
-        categorySlug: 'landline-phone',
-        categoryIcon: 'fa-phone',
-        description: 'Elegant corded hotel room telephone with clear sound quality and a comfortable handset. Finished in a bright, timeless white that complements any guestroom décor.',
-        image: 'orexonluxe-nobg/phone-1w.webp',
-        variantOf: 'landline-corded',
-        variantColor: 'white',
-        variantLabel: 'White',
-        colorVariants: ['black', 'white'],
-        specs: [
-          { icon: 'fa-volume-high', text: 'Clear Sound Quality' },
-          { icon: 'fa-palette', text: 'Timeless White Finish' },
-          { icon: 'fa-shield-halved', text: 'Durable Construction' },
-          { icon: 'fa-compress', text: 'Compact Desktop Footprint' },
-          { icon: 'fa-award', text: '6-Month Warranty' }
-        ]
-      },
-      'landline-front-desk-black': {
-        name: 'Corded Landline Phone — Front Desk — Black',
-        category: 'Landline Phones',
-        categorySlug: 'landline-phone',
-        categoryIcon: 'fa-phone',
-        description: 'Professional front-desk landline telephone with extended features for reception areas. Finished in sophisticated black for a premium, professional look.',
-        image: 'orexonluxe-nobg/phone-1.webp',
-        variantOf: 'landline-front-desk',
-        variantColor: 'black',
-        variantLabel: 'Black',
-        colorVariants: ['black', 'white'],
-        specs: [
-          { icon: 'fa-volume-high', text: 'Clear Sound Quality' },
-          { icon: 'fa-palette', text: 'Sophisticated Black Finish' },
-          { icon: 'fa-briefcase', text: 'Front-Desk Professional Design' },
-          { icon: 'fa-keyboard', text: 'Extended Feature Keypad' },
-          { icon: 'fa-award', text: '6-Month Warranty' }
-        ]
-      },
-      'landline-front-desk-white': {
-        name: 'Corded Landline Phone — Front Desk — White',
-        category: 'Landline Phones',
-        categorySlug: 'landline-phone',
-        categoryIcon: 'fa-phone',
-        description: 'Professional front-desk landline telephone with extended features for reception areas. Finished in clean white for a bright, welcoming appearance.',
-        image: 'orexonluxe-nobg/phone-2.webp',
-        variantOf: 'landline-front-desk',
-        variantColor: 'white',
-        variantLabel: 'White',
-        colorVariants: ['black', 'white'],
-        specs: [
-          { icon: 'fa-volume-high', text: 'Clear Sound Quality' },
-          { icon: 'fa-palette', text: 'Clean White Finish' },
-          { icon: 'fa-briefcase', text: 'Front-Desk Professional Design' },
-          { icon: 'fa-keyboard', text: 'Extended Feature Keypad' },
-          { icon: 'fa-award', text: '6-Month Warranty' }
-        ]
-      },
-
-      /* ---------- SMART TOILETS ---------- */
-      'smart-toilet-floor': {
-        name: 'Automatic Floor Mounted Smart Toilet',
-        category: 'Smart Toilets',
-        categorySlug: 'smart-toilet',
-        categoryIcon: 'fa-toilet',
-        description: 'Integrated bidet, heated seat, and touchless flush for luxury bathrooms. Fully automatic floor-mounted design delivers premium comfort and hygiene.',
-        image: 'orexonluxe-nobg/toilet-2.webp',
-        specs: [
-          { icon: 'fa-temperature-half', text: 'Adjustable Heated Seat' },
-          { icon: 'fa-water', text: 'Warm Water Bidet Function' },
-          { icon: 'fa-droplet', text: 'Water Usage: 3-6L' },
-          { icon: 'fa-bolt', text: 'Power Supply: 230V AC' },
-          { icon: 'fa-award', text: '6-Month Warranty' }
-        ]
-      },
-      'smart-toilet-wall': {
-        name: 'Automatic Wall Mounted Smart Toilet',
-        category: 'Smart Toilets',
-        categorySlug: 'smart-toilet',
-        categoryIcon: 'fa-toilet',
-        description: 'Space-saving wall-hung smart toilet with advanced bidet and heating features. Designed for the finest hotel bathrooms, combining comfort, hygiene, and modern elegance.',
-        image: 'orexonluxe-nobg/toilet-1.webp',
-        specs: [
-          { icon: 'fa-temperature-half', text: 'Adjustable Heated Seat' },
-          { icon: 'fa-water', text: 'Warm Water Bidet Function' },
-          { icon: 'fa-droplet', text: 'Water Usage: 4L' },
-          { icon: 'fa-bolt', text: 'Power Supply: 230V AC' },
-          { icon: 'fa-award', text: '6-Month Warranty' }
-        ]
-      }
+      'hand-dryer-ss': { name: 'Automatic Stainless Steel Hand Dryer', category: 'Electric Hand Dryers', categorySlug: 'hand-dryer', categoryIcon: 'fa-wind', description: 'Ultra-quiet, energy-efficient hand dryer with HEPA filtration and touchless activation for modern hotel washrooms. High-speed, durable, and elegant stainless steel body that complements premium interiors.', image: 'orexonluxe-nobg/handdryer-1.webp', specs: [{ icon: 'fa-bolt', text: '2300W Powerful Performance' }, { icon: 'fa-clock', text: '10-Second Fast Drying' }, { icon: 'fa-gauge-high', text: '90 m/s High Air Speed' }, { icon: 'fa-shield-halved', text: 'Premium SS 304 Body' }, { icon: 'fa-award', text: '6-Month Warranty' }] },
+      'hand-dryer-orexon': { name: 'Orexon Wall Mounted Automatic Hand Dryer', category: 'Electric Hand Dryers', categorySlug: 'hand-dryer', categoryIcon: 'fa-wind', description: 'Compact and efficient automatic hand dryer designed for standard hotel washrooms. Combines reliable performance with a sleek, space-saving profile.', image: 'orexonluxe-nobg/handdryer-2.webp', specs: [{ icon: 'fa-bolt', text: '1800W Power' }, { icon: 'fa-clock', text: '10-Second Drying' }, { icon: 'fa-gauge-high', text: '90 m/s Air Speed' }, { icon: 'fa-screwdriver-wrench', text: 'Wall-Mounted Design' }, { icon: 'fa-award', text: '6-Month Warranty' }] },
+      'hand-dryer-jet': { name: 'Jet Dryer Smart 7s High Speed Air', category: 'Electric Hand Dryers', categorySlug: 'hand-dryer', categoryIcon: 'fa-wind', description: 'Premium high-speed air jet hand dryer engineered for luxury hotels and premium washrooms. Delivers rapid drying with a sleek, modern aesthetic.', image: 'orexonluxe-nobg/handdryer-3.webp', specs: [{ icon: 'fa-bolt', text: '7-10 Second Ultra-Fast Drying' }, { icon: 'fa-gears', text: '2000W High-Speed Motor' }, { icon: 'fa-filter', text: 'HEPA Filter for Better Hygiene' }, { icon: 'fa-volume-low', text: 'Low-Noise Operation' }, { icon: 'fa-award', text: '6-Month Warranty' }] },
+      'compact-hand-dryer': { name: 'Automatic ODX2 Electric Hand Dryer', category: 'Electric Hand Dryers', categorySlug: 'hand-dryer', categoryIcon: 'fa-wind', description: 'Premium high-speed compact hand dryer designed for luxury hotels and premium washrooms. Perfect for spaces where elegance and efficiency matter.', image: 'orexonluxe-nobg/handdryer-4.webp', specs: [{ icon: 'fa-bolt', text: '7-10 Second Ultra-Fast Drying' }, { icon: 'fa-hand', text: 'Touchless Infrared Activation' }, { icon: 'fa-gears', text: '2000W High-Speed Performance' }, { icon: 'fa-gauge-high', text: '90 m/s Air Speed' }, { icon: 'fa-award', text: '6-Month Warranty' }] },
+      'steel-hand-dryer': { name: 'Steel Hand Dryer', category: 'Electric Hand Dryers', categorySlug: 'hand-dryer', categoryIcon: 'fa-wind', description: 'Heavy-duty stainless steel hand dryer engineered for high-traffic hospitality washrooms. Built for durability and consistent performance.', image: 'orexonluxe-nobg/handdryer-5.webp', specs: [{ icon: 'fa-shield-halved', text: 'Heavy-Duty Stainless Steel' }, { icon: 'fa-bolt', text: 'High-Speed Motor' }, { icon: 'fa-hand', text: 'Touchless Activation' }, { icon: 'fa-gauge-high', text: 'Powerful Airflow' }, { icon: 'fa-award', text: '6-Month Warranty' }] },
+      'high-speed-hand-dryer': { name: 'High Speed Hand Dryer', category: 'Electric Hand Dryers', categorySlug: 'hand-dryer', categoryIcon: 'fa-wind', description: 'Ultra-fast drying performance with powerful airflow for busy premium washrooms. Engineered to keep pace with high-traffic environments.', image: 'orexonluxe-nobg/handdryer-6.webp', specs: [{ icon: 'fa-gauge-high', text: 'Ultra-Fast Drying' }, { icon: 'fa-bolt', text: 'Powerful Motor' }, { icon: 'fa-hand', text: 'Touchless Operation' }, { icon: 'fa-volume-low', text: 'Low Noise' }, { icon: 'fa-award', text: '6-Month Warranty' }] },
+      'mini-fridge-solid': { name: 'Solid Door Mini Bar Fridge 50L', category: 'Mini Fridges', categorySlug: 'mini-fridge', categoryIcon: 'fa-snowflake', description: 'Whisper-quiet absorption cooling technology with a solid-door elegant finish, perfect for hotel rooms and offices. 50L capacity with reliable, virtually maintenance-free operation.', image: 'orexonluxe-nobg/minifridge-1.webp', specs: [{ icon: 'fa-volume-xmark', text: 'Whisper-Quiet Absorption Cooling' }, { icon: 'fa-temperature-low', text: 'Reliable Cooling Performance' }, { icon: 'fa-door-closed', text: 'Solid Door with Premium Finish' }, { icon: 'fa-cube', text: 'Capacity: 50 Litres' }, { icon: 'fa-award', text: '1-Year Warranty' }] },
+      'mini-fridge-glass': { name: 'Glass Door Mini Bar Fridge 50L', category: 'Mini Fridges', categorySlug: 'mini-fridge', categoryIcon: 'fa-snowflake', description: 'Stylish glass-door mini bar with efficient cooling and an elegant display. Showcases your premium beverages with sophistication while keeping them perfectly chilled.', image: 'orexonluxe-nobg/minifridge-2.webp', specs: [{ icon: 'fa-volume-xmark', text: 'Whisper-Quiet Operation' }, { icon: 'fa-temperature-low', text: 'Efficient Cooling Performance' }, { icon: 'fa-martini-glass', text: 'Elegant Glass Door Display' }, { icon: 'fa-cube', text: 'Capacity: 50 Litres' }, { icon: 'fa-award', text: '1-Year Warranty' }] },
+      'sensor-tap-curve': { name: 'Curve Automatic Sensor Water Tap', category: 'Sensor Taps', categorySlug: 'sensor-tap', categoryIcon: 'fa-faucet-drip', description: 'Touchless infrared faucet with an elegant curve design and water-saving aerator. Activates only when hands are present and shuts off automatically, elevating hygiene and sustainability in hotel washrooms.', image: 'orexonluxe-nobg/tap-1.webp', specs: [{ icon: 'fa-hand', text: 'Touchless Infrared Activation' }, { icon: 'fa-leaf', text: 'Water-Saving Aerator' }, { icon: 'fa-satellite-dish', text: '5 cm Sensor Range' }, { icon: 'fa-clock', text: 'Auto Shut-Off Feature' }, { icon: 'fa-award', text: '6-Month Warranty' }] },
+      'sensor-tap-brass': { name: 'Brass Sensor Faucet', category: 'Sensor Taps', categorySlug: 'sensor-tap', categoryIcon: 'fa-faucet-drip', description: 'Durable brass construction with precise touchless sensor technology. Engineered for long-lasting performance and refined aesthetics in hospitality environments.', image: 'orexonluxe-nobg/tap-2.webp', specs: [{ icon: 'fa-hand', text: 'Touchless Infrared Activation' }, { icon: 'fa-shield-halved', text: 'Durable Brass Construction' }, { icon: 'fa-leaf', text: 'Water-Saving Aerator' }, { icon: 'fa-satellite-dish', text: '20 cm Sensor Range' }, { icon: 'fa-award', text: '6-Month Warranty' }] },
+      'smart-washroom-faucet': { name: 'Smart Washroom Faucet', category: 'Sensor Taps', categorySlug: 'sensor-tap', categoryIcon: 'fa-faucet-drip', description: 'Modern touchless faucet with intelligent sensing and hygienic hands-free operation. Designed to elevate hygiene and comfort in premium washroom environments.', image: 'orexonluxe-nobg/tap-3.webp', specs: [{ icon: 'fa-microchip', text: 'Intelligent Touchless Sensing' }, { icon: 'fa-hand-sparkles', text: 'Hygienic Hands-Free Operation' }, { icon: 'fa-leaf', text: 'Water-Saving Technology' }, { icon: 'fa-clock', text: 'Auto Shut-Off Feature' }, { icon: 'fa-award', text: '6-Month Warranty' }] },
+      'pure-flow-sensor-tap': { name: 'Pure Flow Sensor Tap', category: 'Sensor Taps', categorySlug: 'sensor-tap', categoryIcon: 'fa-faucet-drip', description: 'Precision-engineered sensor tap delivering consistent water flow with minimal waste. Combines advanced touchless technology with refined aesthetics.', image: 'orexonluxe-nobg/tap-4.webp', specs: [{ icon: 'fa-hand', text: 'Touchless Infrared Activation' }, { icon: 'fa-droplet', text: 'Consistent Water Flow' }, { icon: 'fa-leaf', text: 'Minimal Water Waste' }, { icon: 'fa-ruler-combined', text: 'Precision Engineering' }, { icon: 'fa-award', text: '6-Month Warranty' }] },
+      'soap-dispenser-auto': { name: 'Touch Free Automatic Soap Dispenser', category: 'Soap Dispensers', categorySlug: 'soap-dispenser', categoryIcon: 'fa-pump-soap', description: 'Economical touch-free soap dispenser designed for high-traffic washrooms. Combines reliable performance with elegant simplicity.', image: 'orexonluxe-nobg/soapdispenser-1.webp', specs: [{ icon: 'fa-hand', text: 'Liquid Drop Dispensing' }, { icon: 'fa-droplet', text: 'Precise Dosing Per Activation' }, { icon: 'fa-fill-drip', text: 'Refillable Cartridge' }, { icon: 'fa-battery-full', text: 'Battery Powered Operation' }, { icon: 'fa-award', text: '6-Month Warranty' }] },
+      'soap-dispenser-sensor': { name: 'Touch Free Sensor Soap Dispenser', category: 'Soap Dispensers', categorySlug: 'soap-dispenser', categoryIcon: 'fa-pump-soap', description: 'Wall-mounted touchless dispenser with precise dosing and a premium finish. Reduces cross-contamination and waste while delivering a consistently elegant guest experience.', image: 'orexonluxe-nobg/soapdispenser-2.webp', specs: [{ icon: 'fa-spray-can-sparkles', text: 'Automatic Spray Dispensing' }, { icon: 'fa-flask', text: '1000 ml Capacity' }, { icon: 'fa-fill-drip', text: 'Refillable Cartridge' }, { icon: 'fa-battery-full', text: 'Battery Powered Operation' }, { icon: 'fa-award', text: '6-Month Warranty' }] },
+      'soap-dispenser-liquid': { name: 'Automatic Liquid Soap Dispenser', category: 'Soap Dispensers', categorySlug: 'soap-dispenser', categoryIcon: 'fa-pump-soap', description: 'Sleek sensor-operated dispenser engineered for liquid soap. Modern minimalist design with reliable touchless operation and precise dosing for premium washrooms.', image: 'orexonluxe-nobg/soapdispenser-3.webp', specs: [{ icon: 'fa-hand', text: 'Sensor-Operated Touchless' }, { icon: 'fa-flask', text: 'Liquid Soap Compatible' }, { icon: 'fa-droplet', text: 'Precise Dosing Control' }, { icon: 'fa-compress', text: 'Minimalist Sleek Design' }, { icon: 'fa-award', text: '6-Month Warranty' }] },
+      'hair-dryer': { name: 'Orexon Luxe High Speed Hair Dryer', category: 'Hair Dryers', categorySlug: 'hair-dryer', categoryIcon: 'fa-wind', description: 'Wall-mounted hotel hair dryer with high-speed drying and safety features. Designed for premium guestroom bathrooms with a sleek, compact profile.', image: 'orexonluxe-nobg/hairdryer-1.webp', specs: [{ icon: 'fa-bolt', text: '1200W, 220V Powerful Motor' }, { icon: 'fa-temperature-half', text: 'Multiple Heat Settings' }, { icon: 'fa-plug', text: '1.2m Cord Length' }, { icon: 'fa-screwdriver-wrench', text: 'Wall-Mounted Design' }, { icon: 'fa-award', text: '6-Month Warranty' }] },
+      'electric-kettle': { name: 'Electric Tea Kettle with Cups & Tray', category: 'Electric Kettles', categorySlug: 'electric-kettle', categoryIcon: 'fa-mug-hot', description: 'Premium electric kettle set with cups and tray for guestroom hospitality. Elegant presentation and reliable performance in one complete package.', image: 'orexonluxe-nobg/kettle-1.webp', specs: [{ icon: 'fa-bolt', text: 'Rapid Boiling Performance' }, { icon: 'fa-fire-flame-simple', text: 'SS304 Heating Element' }, { icon: 'fa-mug-hot', text: 'Complete Tray & Cup Set' }, { icon: 'fa-cube', text: '2.0 Litre Capacity' }, { icon: 'fa-award', text: '6-Month Warranty' }] },
+      'compact-electric-kettle': { name: 'Compact Electric Kettle', category: 'Electric Kettles', categorySlug: 'electric-kettle', categoryIcon: 'fa-mug-hot', description: 'Space-saving compact electric kettle for premium guestroom hospitality. Delivers fast boiling with a minimal footprint.', image: 'orexonluxe-nobg/kettle-2.webp', specs: [{ icon: 'fa-bolt', text: 'Fast Boiling Performance' }, { icon: 'fa-shield-halved', text: 'Auto Shut-Off Safety' }, { icon: 'fa-compress', text: 'Space-Saving Design' }, { icon: 'fa-cube', text: 'Compact Guestroom Size' }, { icon: 'fa-award', text: '6-Month Warranty' }] },
+      'landline-corded-black': { name: 'Corded Landline Phone — Standard — Black', category: 'Landline Phones', categorySlug: 'landline-phone', categoryIcon: 'fa-phone', description: 'Elegant corded hotel room telephone with clear sound quality and a comfortable handset. Finished in a deep, classic black that complements premium guestroom interiors.', image: 'orexonluxe-nobg/phone-1b.webp', variantOf: 'landline-corded', variantColor: 'black', variantLabel: 'Black', colorVariants: ['black', 'white'], specs: [{ icon: 'fa-volume-high', text: 'Clear Sound Quality' }, { icon: 'fa-palette', text: 'Elegant Black Finish' }, { icon: 'fa-shield-halved', text: 'Durable Construction' }, { icon: 'fa-compress', text: 'Compact Desktop Footprint' }, { icon: 'fa-award', text: '6-Month Warranty' }] },
+      'landline-corded-white': { name: 'Corded Landline Phone — Standard — White', category: 'Landline Phones', categorySlug: 'landline-phone', categoryIcon: 'fa-phone', description: 'Elegant corded hotel room telephone with clear sound quality and a comfortable handset. Finished in a bright, timeless white that complements any guestroom décor.', image: 'orexonluxe-nobg/phone-1w.webp', variantOf: 'landline-corded', variantColor: 'white', variantLabel: 'White', colorVariants: ['black', 'white'], specs: [{ icon: 'fa-volume-high', text: 'Clear Sound Quality' }, { icon: 'fa-palette', text: 'Timeless White Finish' }, { icon: 'fa-shield-halved', text: 'Durable Construction' }, { icon: 'fa-compress', text: 'Compact Desktop Footprint' }, { icon: 'fa-award', text: '6-Month Warranty' }] },
+      'landline-front-desk-black': { name: 'Corded Landline Phone — Front Desk — Black', category: 'Landline Phones', categorySlug: 'landline-phone', categoryIcon: 'fa-phone', description: 'Professional front-desk landline telephone with extended features for reception areas. Finished in sophisticated black for a premium, professional look.', image: 'orexonluxe-nobg/phone-1.webp', variantOf: 'landline-front-desk', variantColor: 'black', variantLabel: 'Black', colorVariants: ['black', 'white'], specs: [{ icon: 'fa-volume-high', text: 'Clear Sound Quality' }, { icon: 'fa-palette', text: 'Sophisticated Black Finish' }, { icon: 'fa-briefcase', text: 'Front-Desk Professional Design' }, { icon: 'fa-keyboard', text: 'Extended Feature Keypad' }, { icon: 'fa-award', text: '6-Month Warranty' }] },
+      'landline-front-desk-white': { name: 'Corded Landline Phone — Front Desk — White', category: 'Landline Phones', categorySlug: 'landline-phone', categoryIcon: 'fa-phone', description: 'Professional front-desk landline telephone with extended features for reception areas. Finished in clean white for a bright, welcoming appearance.', image: 'orexonluxe-nobg/phone-2.webp', variantOf: 'landline-front-desk', variantColor: 'white', variantLabel: 'White', colorVariants: ['black', 'white'], specs: [{ icon: 'fa-volume-high', text: 'Clear Sound Quality' }, { icon: 'fa-palette', text: 'Clean White Finish' }, { icon: 'fa-briefcase', text: 'Front-Desk Professional Design' }, { icon: 'fa-keyboard', text: 'Extended Feature Keypad' }, { icon: 'fa-award', text: '6-Month Warranty' }] },
+      'smart-toilet-floor': { name: 'Automatic Floor Mounted Smart Toilet', category: 'Smart Toilets', categorySlug: 'smart-toilet', categoryIcon: 'fa-toilet', description: 'Integrated bidet, heated seat, and touchless flush for luxury bathrooms. Fully automatic floor-mounted design delivers premium comfort and hygiene.', image: 'orexonluxe-nobg/toilet-2.webp', specs: [{ icon: 'fa-temperature-half', text: 'Adjustable Heated Seat' }, { icon: 'fa-water', text: 'Warm Water Bidet Function' }, { icon: 'fa-droplet', text: 'Water Usage: 3-6L' }, { icon: 'fa-bolt', text: 'Power Supply: 230V AC' }, { icon: 'fa-award', text: '6-Month Warranty' }] },
+      'smart-toilet-wall': { name: 'Automatic Wall Mounted Smart Toilet', category: 'Smart Toilets', categorySlug: 'smart-toilet', categoryIcon: 'fa-toilet', description: 'Space-saving wall-hung smart toilet with advanced bidet and heating features. Designed for the finest hotel bathrooms, combining comfort, hygiene, and modern elegance.', image: 'orexonluxe-nobg/toilet-1.webp', specs: [{ icon: 'fa-temperature-half', text: 'Adjustable Heated Seat' }, { icon: 'fa-water', text: 'Warm Water Bidet Function' }, { icon: 'fa-droplet', text: 'Water Usage: 4L' }, { icon: 'fa-bolt', text: 'Power Supply: 230V AC' }, { icon: 'fa-award', text: '6-Month Warranty' }] }
     };
 
-    /* HELPERS */
     const $ = (id) => document.getElementById(id);
 
     function getProductFromUrl() {
@@ -1152,7 +662,6 @@
       window.location.href = PAGE_URL + '?product=' + encodeURIComponent(id);
     }
 
-    /* RENDER PRODUCT */
     function renderProduct(productId) {
       const product = productsDB[productId];
       if (!product) return;
@@ -1162,14 +671,12 @@
       bcCat.setAttribute('href', 'products.html?category=' + product.categorySlug);
       $('breadcrumbProduct').textContent = product.name;
 
-      $('productCategoryTag').innerHTML =
-        `<i class="fa-solid ${product.categoryIcon}"></i> ${product.category}`;
+      $('productCategoryTag').innerHTML = `<i class="fa-solid ${product.categoryIcon}"></i> ${product.category}`;
 
       const nameParts = product.name.split(' ');
       const lastWord = nameParts.pop();
       const firstName = nameParts.join(' ');
-      $('productTitle').innerHTML =
-        firstName ? `${firstName} <em>${lastWord}</em>` : `<em>${lastWord}</em>`;
+      $('productTitle').innerHTML = firstName ? `${firstName} <em>${lastWord}</em>` : `<em>${lastWord}</em>`;
 
       $('productDescription').textContent = product.description;
 
@@ -1197,9 +704,7 @@
         colorRow.style.display = 'none';
       }
 
-      $('specsList').innerHTML = product.specs.map(spec =>
-        `<li><i class="fa-solid ${spec.icon}"></i> ${spec.text}</li>`
-      ).join('');
+      $('specsList').innerHTML = product.specs.map(spec => `<li><i class="fa-solid ${spec.icon}"></i> ${spec.text}</li>`).join('');
 
       renderRelated(productId, product);
     }
@@ -1258,7 +763,6 @@
       });
     }
 
-    /* WHATSAPP ENQUIRY — CLEAN PLAIN-TEXT MESSAGE */
     function enquireOnWhatsApp(productName, customMessage) {
       const lines = [
         'PRODUCT ENQUIRY - OREXON LUXE',
@@ -1269,24 +773,15 @@
       ];
 
       if (customMessage) {
-        lines.push(
-          '',
-          'Message:',
-          customMessage
-        );
+        lines.push('', 'Message:', customMessage);
       }
 
-      lines.push(
-        '',
-        '------------------------------',
-        'Sent from OREXON LUXE website'
-      );
+      lines.push('', '------------------------------', 'Sent from OREXON LUXE website');
 
       const text = encodeURIComponent(lines.join('\n'));
       window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, '_blank');
     }
 
-    /* INIT */
     document.addEventListener('DOMContentLoaded', () => {
       const currentProduct = getProductFromUrl();
       renderProduct(currentProduct.id);
@@ -1307,7 +802,6 @@
         enquireOnWhatsApp(currentProduct.data.name, 'I would like a custom quote for this product.');
       });
 
-      /* Hamburger */
       const hamburger = $('hamburger');
       const mobileMenu = $('mobileMenu');
       const mobileMenuClose = $('mobileMenuClose');
@@ -1346,7 +840,6 @@
         if (window.innerWidth > 1200 && mobileMenu.classList.contains('active')) closeMobileMenu();
       });
 
-      /* Theme toggle */
       const themeToggle = $('themeToggle');
       const themeIcon = $('themeIcon');
 
@@ -1375,7 +868,6 @@
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); themeToggle.click(); }
       });
 
-      /* Back to top */
       const backToTop = $('backToTop');
       window.addEventListener('scroll', () => {
         backToTop.classList.toggle('show', window.pageYOffset > 400);
@@ -1384,7 +876,6 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
 
-      /* Brand logo */
       document.querySelectorAll('.brand-logo').forEach(logo => {
         logo.addEventListener('click', (e) => {
           e.preventDefault();
