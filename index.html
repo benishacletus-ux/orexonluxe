@@ -392,7 +392,6 @@
       color: var(--text-muted);
     }
 
-    /* Marquee wrapper with gradient fades on both edges */
     .reviews-marquee {
       position: relative;
       width: 100%;
@@ -409,7 +408,6 @@
       will-change: transform;
     }
 
-    /* Pause on hover */
     .reviews-marquee:hover .reviews-track {
       animation-play-state: paused;
     }
@@ -449,7 +447,6 @@
       user-select: none;
     }
 
-    /* Star row + numeric rating side by side */
     .review-stars {
       display: flex;
       align-items: center;
@@ -533,7 +530,6 @@
       text-transform: uppercase;
     }
 
-    /* Pause animation for users who prefer reduced motion */
     @media (prefers-reduced-motion: reduce) {
       .reviews-track { animation: none; }
       .reviews-marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
@@ -948,7 +944,8 @@
             <a href="products.html?category=soap-dispenser"><i class="fa-solid fa-pump-soap"></i> Soap Dispensers</a>
             <a href="products.html?category=landline-phone"><i class="fa-solid fa-phone"></i> Landline Phones</a>
             <a href="products.html?category=smart-toilet"><i class="fa-solid fa-toilet"></i> Smart Toilets</a>
-            <a href="products.html?category=hotel-amenities"><i class="fa-solid fa-hotel"></i> Hotel Amenities</a>
+            <a href="products.html?category=electric-kettle"><i class="fa-solid fa-mug-hot"></i> Electric Kettles</a>
+            <a href="products.html?category=hair-dryer"><i class="fa-solid fa-wind"></i> Hair Dryers</a>
           </div>
         </div>
         <a href="services.html">Services</a>
@@ -985,7 +982,8 @@
         <a href="products.html?category=soap-dispenser"><i class="fa-solid fa-pump-soap"></i> Soap Dispensers</a>
         <a href="products.html?category=landline-phone"><i class="fa-solid fa-phone"></i> Landline Phones</a>
         <a href="products.html?category=smart-toilet"><i class="fa-solid fa-toilet"></i> Smart Toilets</a>
-        <a href="products.html?category=hotel-amenities"><i class="fa-solid fa-hotel"></i> Hotel Amenities</a>
+        <a href="products.html?category=electric-kettle"><i class="fa-solid fa-mug-hot"></i> Electric Kettles</a>
+        <a href="products.html?category=hair-dryer"><i class="fa-solid fa-wind"></i> Hair Dryers</a>
       </div>
     </div>
     <a href="services.html">Services</a>
@@ -1129,7 +1127,7 @@
         <div class="category-body">
           <h3>Electric Kettles</h3>
           <p>Premium electric kettles with cups and tray sets for guestroom hospitality.</p>
-          <a href="products.html?category=hotel-amenities" class="btn-category">
+          <a href="products.html?category=electric-kettle" class="btn-category">
             Discover <i class="fa-solid fa-arrow-right"></i>
           </a>
         </div>
@@ -1143,7 +1141,7 @@
         <div class="category-body">
           <h3>Hair Dryers</h3>
           <p>Wall-mounted hotel hair dryers with high-speed drying and multiple heat settings.</p>
-          <a href="products.html?category=hotel-amenities" class="btn-category">
+          <a href="products.html?category=hair-dryer" class="btn-category">
             Discover <i class="fa-solid fa-arrow-right"></i>
           </a>
         </div>
@@ -1650,7 +1648,8 @@
               <option value="Soap Dispensers">Soap Dispensers</option>
               <option value="Landline Phones">Landline Phones</option>
               <option value="Smart Toilets">Smart Toilets</option>
-              <option value="Hotel Amenities">Hotel Amenities (Hair Dryer, Kettle)</option>
+              <option value="Electric Kettles">Electric Kettles</option>
+              <option value="Hair Dryers">Hair Dryers</option>
               <option value="Full Catalog">Full B2B Catalog</option>
               <option value="Other">Other</option>
             </select>
