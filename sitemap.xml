@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- ============================================================
+       HOMEPAGE
+       ============================================================ -->
+  <url>
+    <loc>https://orexonluxe.com/</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://orexonluxe.com/orexonluxe-img/luxeroompc.webp</image:loc>
+      <image:title>OREXON LUXE — Premium Hotel &amp; Hospitality Supplies</image:title>
+      <image:caption>Premium hotel and commercial amenities across India. Based in Aligarh, UP.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- ============================================================
+       ABOUT US
+       ============================================================ -->
+  <url>
+    <loc>https://orexonluxe.com/about.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ============================================================
+       PRODUCTS PAGE
+       ============================================================ -->
+  <url>
+    <loc>https://orexonluxe.com/products.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://orexonluxe.com/orexonluxe-img/hero1.webp</image:loc>
+      <image:title>OREXON LUXE — Premium Hotel Products Collection</image:title>
+    </image:image>
+  </url>
+
+  <!-- ============================================================
+       SERVICES PAGE
+       ============================================================ -->
+  <url>
+    <loc>https://orexonluxe.com/services.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ============================================================
+       CONTACT PAGE
+       ============================================================ -->
+  <url>
+    <loc>https://orexonluxe.com/contact.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ============================================================
+       POLICIES PAGE
+       ============================================================ -->
+  <url>
+    <loc>https://orexonluxe.com/policies.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- ============================================================
+       PRODUCT DETAIL PAGES — Hand Dryers (6 products)
+       ============================================================ -->
+  <url>
+    <loc>https://orexonluxe.com/product-detail.html?product=hand-dryer-ss</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://orexonluxe.com/orexonluxe-nobg/handdryer-1.webp</image:loc>
+      <image:title>Automatic Stainless Steel Hand Dryer — OREXON LUXE</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://orexonluxe.com/product-detail.html?product=hand-dryer-orexon</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://orexonluxe.com/orexonluxe-nobg/handdryer-2.webp</image:loc>
+      <image:title>Orexon Wall Mounted Automatic Hand Dryer — OREXON LUXE</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://orexonluxe.com/product-detail.html?product=hand-dryer-jet</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://orexonluxe.com/orexonluxe-nobg/handdryer-3.webp</image:loc>
+      <image:title>Jet Dryer Smart 7s High Speed Air — OREXON LUXE</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://orexonluxe.com/product-detail.html?product=compact-hand-dryer</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://orexonluxe.com/orexonluxe-nobg/handdryer-4.webp</image:loc>
+      <image:title>Automatic ODX2 Electric Hand Dryer — OREXON LUXE</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://orexonluxe.com/product-detail.html?product=steel-hand-dryer</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://orexonluxe.com/orexonluxe-nobg/handdryer-5.webp</image:loc>
+      <image:title>Steel Hand Dryer — OREXON LUXE</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://orexonluxe.com/product-detail.html?product=high-speed-hand-dryer</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://orexonluxe.com/orexonluxe-nobg/handdryer-6.webp</image:loc>
+      <image:title>High Speed Hand Dryer — OREXON LUXE</image:title>
+    </image:image>
+  </url>
+
+  <!-- ============================================================
+       PRODUCT DETAIL PAGES — Mini Fridges (2 products)
+       ============================================================ -->
+  <url>
+    <loc>https://orexonluxe.com/product-detail.html?product=mini-fridge-solid</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://orexonluxe.com/orexonluxe-nobg/minifridge-1.webp</image:loc>
+      <image:title>Solid Door Mini Bar Fridge 50L — OREXON LUXE</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://orexonluxe.com/product-detail.html?product=mini-fridge-glass</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://orexonluxe.com/orexonluxe-nobg/minifridge-2.webp</image:loc>
+      <image:title>Glass Door Mini Bar Fridge 50L — OREXON LUXE</image:title>
+    </image:image>
+  </url>
+
+  <!-- ============================================================
+       PRODUCT DETAIL PAGES — Sensor Taps (4 products)
+       ============================================================ -->
+  <url>
+    <loc>https://orexonluxe.com/product-detail.html?product=sensor-tap-curve</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://orexonluxe.com/orexonluxe-nobg/tap-1.webp</image:loc>
+      <image:title>Curve Automatic Sensor Water Tap — OREXON LUXE</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://orexonluxe.com/product-detail.html?product=sensor-tap-brass</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://orexonluxe.com/orexonluxe-nobg/tap-2.webp</image:loc>
+      <image:title>Brass Sensor Faucet — OREXON LUXE</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://orexonluxe.com/product-detail.html?product=smart-washroom-faucet</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://orexonluxe.com/orexonluxe-nobg/tap-3.webp</image:loc>
+      <image:title>Smart Washroom Faucet — OREXON LUXE</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://orexonluxe.com/product-detail.html?product=pure-flow-sensor-tap</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://orexonluxe.com/orexonluxe-nobg/tap-4.webp</image:loc>
+      <image:title>Pure Flow Sensor Tap — OREXON LUXE</image:title>
+    </image:image>
+  </url>
+
+  <!-- ============================================================
+       PRODUCT DETAIL PAGES — Soap Dispensers (3 products)
+       ============================================================ -->
+  <url>
+    <loc>https://orexonluxe.com/product-detail.html?product=soap-dispenser-auto</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://orexonluxe.com/orexonluxe-nobg/soapdispenser-1.webp</image:loc>
+      <image:title>Touch Free Automatic Soap Dispenser — OREXON LUXE</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://orexonluxe.com/product-detail.html?product=soap-dispenser-sensor</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://orexonluxe.com/orexonluxe-nobg/soapdispenser-2.webp</image:loc>
+      <image:title>Touch Free Sensor Soap Dispenser — OREXON LUXE</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://orexonluxe.com/product-detail.html?product=soap-dispenser-liquid</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://orexonluxe.com/orexonluxe-nobg/soapdispenser-3.webp</image:loc>
+      <image:title>Automatic Liquid Soap Dispenser — OREXON LUXE</image:title>
+    </image:image>
+  </url>
+
+  <!-- ============================================================
+       PRODUCT DETAIL PAGES — Hair Dryers (1 product)
+       ============================================================ -->
+  <url>
+    <loc>https://orexonluxe.com/product-detail.html?product=hair-dryer</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://orexonluxe.com/orexonluxe-nobg/hairdryer-1.webp</image:loc>
+      <image:title>Orexon Luxe High Speed Hair Dryer — OREXON LUXE</image:title>
+    </image:image>
+  </url>
+
+  <!-- ============================================================
+       PRODUCT DETAIL PAGES — Electric Kettles (2 products)
+       ============================================================ -->
+  <url>
+    <loc>https://orexonluxe.com/product-detail.html?product=electric-kettle</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://orexonluxe.com/orexonluxe-nobg/kettle-1.webp</image:loc>
+      <image:title>Electric Tea Kettle with Cups &amp; Tray — OREXON LUXE</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://orexonluxe.com/product-detail.html?product=compact-electric-kettle</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://orexonluxe.com/orexonluxe-nobg/kettle-2.webp</image:loc>
+      <image:title>Compact Electric Kettle — OREXON LUXE</image:title>
+    </image:image>
+  </url>
+
+  <!-- ============================================================
+       PRODUCT DETAIL PAGES — Landline Phones (4 variants)
+       ============================================================ -->
+  <url>
+    <loc>https://orexonluxe.com/product-detail.html?product=landline-corded-black</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://orexonluxe.com/orexonluxe-nobg/phone-1b.webp</image:loc>
+      <image:title>Corded Landline Phone Standard — Black — OREXON LUXE</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://orexonluxe.com/product-detail.html?product=landline-corded-white</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://orexonluxe.com/orexonluxe-nobg/phone-1w.webp</image:loc>
+      <image:title>Corded Landline Phone Standard — White — OREXON LUXE</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://orexonluxe.com/product-detail.html?product=landline-front-desk-black</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://orexonluxe.com/orexonluxe-nobg/phone-1.webp</image:loc>
+      <image:title>Corded Landline Phone Front Desk — Black — OREXON LUXE</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://orexonluxe.com/product-detail.html?product=landline-front-desk-white</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://orexonluxe.com/orexonluxe-nobg/phone-2.webp</image:loc>
+      <image:title>Corded Landline Phone Front Desk — White — OREXON LUXE</image:title>
+    </image:image>
+  </url>
+
+  <!-- ============================================================
+       PRODUCT DETAIL PAGES — Smart Toilets (2 products)
+       ============================================================ -->
+  <url>
+    <loc>https://orexonluxe.com/product-detail.html?product=smart-toilet-floor</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://orexonluxe.com/orexonluxe-nobg/toilet-2.webp</image:loc>
+      <image:title>Automatic Floor Mounted Smart Toilet — OREXON LUXE</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://orexonluxe.com/product-detail.html?product=smart-toilet-wall</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://orexonluxe.com/orexonluxe-nobg/toilet-1.webp</image:loc>
+      <image:title>Automatic Wall Mounted Smart Toilet — OREXON LUXE</image:title>
+    </image:image>
+  </url>
+
+</urlset>

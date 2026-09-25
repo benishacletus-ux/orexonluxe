@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Block admin and private areas
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+
+# Allow Google to crawl everything else
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap location
+Sitemap: https://orexonluxe.com/sitemap.xml
