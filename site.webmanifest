@@ -1,8 +1,6 @@
 {
   "name": "Orexon Luxe",
   "short_name": "Orexon",
-  "description": "Premium Hotel & Hospitality Supplies Across India",
-  "start_url": "/",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -17,9 +15,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#0d0e11",
-  "background_color": "#0d0e11",
-  "display": "standalone",
-  "scope": "/",
-  "orientation": "portrait"
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "display": "standalone"
 }
